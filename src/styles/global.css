@@ -702,18 +702,24 @@ body:has(.mobile-nav.is-open) .site-header {
   padding-top: clamp(4.5rem, 9vw, 8.5rem);
 }
 
-.footer-contact {
+.footer-main {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  gap: 1rem;
+  gap: clamp(1rem, 2vw, 2.5rem);
   border-top: 1px solid var(--line);
   padding-block: 1.1rem 0.75rem;
 }
 
+.footer-contact {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: clamp(1rem, 2vw, 2rem);
+}
+
 .footer-link {
   display: inline-flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   gap: 0.4rem;
   padding-block: 0.5rem;
@@ -729,8 +735,10 @@ body:has(.mobile-nav.is-open) .site-header {
 
 .footer-links {
   display: flex;
+  flex: 1;
   gap: clamp(0.5rem, 1.2vw, 1rem);
   align-items: center;
+  justify-content: space-between;
 }
 
 .footer-links .footer-link {
@@ -1257,6 +1265,21 @@ body:has(.mobile-nav.is-open) .site-header {
   .footer-bottom,
   .resume-top {
     flex-direction: column;
+  }
+
+  .footer-main {
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: 0;
+  }
+
+  .footer-contact,
+  .footer-links {
+    flex-basis: 100%;
+  }
+
+  .footer-contact {
+    justify-content: space-between;
   }
 
   .footer-links {
