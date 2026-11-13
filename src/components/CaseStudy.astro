@@ -44,28 +44,14 @@ const {
 } = Astro.props;
 const pageTitle = `${title} — Case Study | Carolina Giacomin`;
 const caseSections = sections ?? [];
-const findSection = (pattern: RegExp, fallback: number, fromEnd = false) => {
-  const indexes = caseSections.map((section, index) => pattern.test(section.heading) ? index : -1).filter((index) => index >= 0);
-  return indexes.length ? (fromEnd ? indexes[indexes.length - 1] : indexes[0]) : Math.min(fallback, Math.max(caseSections.length - 1, 0));
-};
-const overviewIndex = 0;
-const researchIndex = findSection(/research|architecture|discovery/i, 1);
-const decisionsIndex = findSection(/decision|intervention|solution/i, researchIndex + 1);
-const outcomeIndex = findSection(/outcome|validation|takeaway|retrospective/i, caseSections.length - 1, true);
-const sidebar = {
-  role,
-  context: domain ?? team ?? visual,
-  year: year ?? timeline,
-  toc: [
-    { label: "Overview", href: `#case-section-${overviewIndex + 1}` },
-    { label: "Research & Architecture", href: `#case-section-${researchIndex + 1}` },
-    { label: "Key Decisions", href: `#case-section-${decisionsIndex + 1}` },
-    { label: "Outcome", href: `#case-section-${outcomeIndex + 1}` },
-  ],
-};
+const coverImage = visual === "fintech"
+  ? "/images/Cover-Fintech.png"
+  : visual === "health"
+    ? "/images/guido-ui-overview.png"
+    : undefined;
 ---
 
-<SiteLayout title={pageTitle} description={subtitle} sidebar={sidebar}>
+<SiteLayout title={pageTitle} description={subtitle}>
   <article>
     <header class="case-hero">
       <a class="back-link" href="/#work">← Back to selected work</a>
@@ -131,6 +117,7 @@ const sidebar = {
           <div class={`project-visual ${visual}-visual`} aria-hidden="true">
             <span class="visual-index">Product preview</span>
             {gated && <span class="nda-badge">NDA protected</span>}
+            {coverImage && <img class="project-cover" src={coverImage} alt="" loading="lazy" decoding="async" />}
             <div class={`product-window ${visual}-window`}>
               <div class="window-top"><span>{visual === "fintech" ? "Fintech Products" : visual === "health" ? "Guido / Care" : "AI Art Archive"}</span><span>Workspace · Overview</span></div>
               {visual === "fintech" && <div class="window-body"><div class="window-sidebar"><i class="ui-line accent"></i><i class="ui-line"></i><i class="ui-line short"></i><i class="ui-line"></i><i class="ui-line medium"></i></div><div class="window-content"><i class="ui-heading"></i><i class="ui-line medium"></i><div class="ui-table">{[1, 2, 3, 4].map(() => <div class="ui-table-row"><i class="ui-line"></i><i class="ui-line"></i><i class="ui-line"></i></div>)}</div></div></div>}

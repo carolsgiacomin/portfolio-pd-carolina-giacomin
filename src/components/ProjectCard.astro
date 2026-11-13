@@ -10,11 +10,13 @@ interface Props {
 }
 
 const { title, context, year, outcome, href, visual, badge } = Astro.props;
-const coverImage = visual === "archive"
-  ? "/images/aiart_cover.jpg"
-  : visual === "health"
-    ? "/images/guido-ui-overview.png"
-    : undefined;
+const coverImage = visual === "fintech"
+  ? "/images/Cover-Fintech.png"
+  : visual === "archive"
+    ? "/images/aiart_cover.jpg"
+    : visual === "health"
+      ? "/images/guido-ui-overview.png"
+      : undefined;
 ---
 
 <a class="project-card" href={href} aria-label={`${title} — view case study`}>

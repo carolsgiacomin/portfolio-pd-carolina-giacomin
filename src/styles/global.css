@@ -100,15 +100,18 @@ input:focus-visible {
 
 .site-header {
   position: relative;
-  z-index: 20;
+  z-index: 30;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
   min-height: 5.6rem;
-  background: transparent;
-  border-bottom: 0;
-  color: #fff;
-  mix-blend-mode: difference;
+  background: rgba(248, 247, 244, 0.9);
+  border-bottom: 1px solid rgba(22, 22, 21, 0.08);
+  backdrop-filter: blur(10px);
+  color: var(--ink);
+  mix-blend-mode: normal;
 }
 
 body:has(.mobile-nav.is-open) .site-header {
@@ -472,7 +475,8 @@ body:has(.mobile-nav.is-open) .site-header {
 }
 
 .archive-visual .product-window,
-.health-visual .product-window {
+.health-visual .product-window,
+.fintech-visual .product-window {
   display: none;
 }
 
@@ -486,6 +490,23 @@ body:has(.mobile-nav.is-open) .site-header {
   object-fit: cover;
   transform: rotate(-2deg);
   transition: transform 350ms ease;
+}
+
+.fintech-visual .project-cover,
+.fintech-card .project-cover {
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  aspect-ratio: auto;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  object-fit: cover;
+  transform: none;
+}
+
+.fintech-visual {
+  background: #f2efeb;
 }
 
 .project-card:nth-child(even) .project-cover {
@@ -1293,15 +1314,14 @@ body:has(.mobile-nav.is-open) .site-header {
   }
 
   .site-header {
-    position: sticky;
-    top: 0;
+    position: relative;
     display: grid;
     grid-template-columns: 1fr auto;
     align-items: center;
     gap: 0 2rem;
     min-height: 5.5rem;
-    border-bottom: 0;
-    background: transparent;
+    border-bottom: 1px solid rgba(22, 22, 21, 0.08);
+    background: rgba(248, 247, 244, 0.92);
     padding-block: 1rem;
   }
 
@@ -1310,40 +1330,6 @@ body:has(.mobile-nav.is-open) .site-header {
     margin: 0;
   }
 
-  .case-header-context {
-    grid-column: 1 / -1;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    gap: 1rem 2rem;
-    border-top: 1px solid var(--line);
-    margin-top: 1rem;
-    padding-top: 0.8rem;
-  }
-
-  .case-header-meta {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1rem;
-  }
-
-  .case-header-meta > div:first-child {
-    grid-column: auto;
-  }
-
-  .case-toc {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0.4rem 1rem;
-  }
-
-  .case-toc-title {
-    margin: 0;
-  }
-
-  .case-toc a {
-    padding: 0;
-  }
 }
 
 .mono,
@@ -1369,8 +1355,6 @@ body:has(.mobile-nav.is-open) .site-header {
 .project-meta,
 .hero-meta,
 .footer-note,
-.case-header-meta > div > span,
-.case-toc-title,
 .resume-section h2,
 .about-detail > span {
   font-family: var(--font-sans);
@@ -1565,48 +1549,6 @@ body:has(.mobile-nav.is-open) .site-header {
   letter-spacing: -0.045em;
 }
 
-.case-header-meta {
-  display: grid;
-  gap: 1rem;
-}
-
-.case-header-meta > div > span,
-.case-toc-title {
-  display: block;
-  margin-bottom: 0.25rem;
-  color: var(--muted);
-  font-size: 0.73rem;
-  font-weight: 600;
-}
-
-.case-header-meta p {
-  margin: 0;
-  font-size: 0.78rem;
-  line-height: 1.45;
-}
-
-.case-toc {
-  display: grid;
-  gap: 0.15rem;
-}
-
-.case-toc a {
-  padding-block: 0.3rem;
-  font-size: 0.78rem;
-  line-height: 1.4;
-  transition: color 180ms ease;
-}
-
-.case-toc a:hover {
-  color: var(--accent);
-}
-
-.case-content,
-.guido-section,
-.archive-section {
-  scroll-margin-top: 16rem;
-}
-
 .resume-section h2 {
   font-size: 0.8rem;
   font-weight: 600;
@@ -1640,15 +1582,14 @@ body:has(.mobile-nav.is-open) .site-header {
   }
 
   .site-header {
-    position: sticky;
-    top: 0;
+    position: relative;
     z-index: 20;
     display: grid;
     grid-template-columns: 1fr auto;
     align-items: center;
     min-height: 4.6rem;
-    border-right: 0;
-    background: transparent;
+    border-bottom: 1px solid rgba(22, 22, 21, 0.08);
+    background: rgba(248, 247, 244, 0.92);
     padding: 0;
   }
 
@@ -1674,26 +1615,4 @@ body:has(.mobile-nav.is-open) .site-header {
     border-left: 0;
   }
 
-  .case-header-context {
-    grid-column: 1 / -1;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    border-top: 1px solid var(--line);
-    margin-top: 1rem;
-    padding-block: 0.8rem;
-  }
-
-  .case-header-meta {
-    grid-template-columns: 1fr 1fr;
-    gap: 0.55rem 0.8rem;
-  }
-
-  .case-header-meta > div:first-child {
-    grid-column: 1 / -1;
-  }
-
-  .case-toc {
-    align-content: start;
-  }
 }

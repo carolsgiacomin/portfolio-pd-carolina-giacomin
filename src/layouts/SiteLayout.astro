@@ -4,18 +4,11 @@ import "../styles/global.css";
 interface Props {
   title?: string;
   description?: string;
-  sidebar?: {
-    role: string;
-    context: string;
-    year: string;
-    toc: { label: string; href: string }[];
-  };
 }
 
 const {
   title = "Carolina Giacomin — Product Designer",
   description = "Product Designer building clear, thoughtful experiences for complex B2B and SaaS products.",
-  sidebar,
 } = Astro.props;
 ---
 
@@ -47,19 +40,6 @@ const {
           <a href="/#about">About</a>
           <a href="/resume/">Resume</a>
         </nav>
-        {sidebar && (
-          <div class="case-header-context">
-            <div class="case-header-meta" aria-label="Project metadata">
-              <div><span>Role</span><p>{sidebar.role}</p></div>
-              <div><span>Context</span><p>{sidebar.context}</p></div>
-              <div><span>Year</span><p>{sidebar.year}</p></div>
-            </div>
-            <nav class="case-toc" aria-label="On this page">
-              <span class="case-toc-title">On this page</span>
-              {sidebar.toc.map((item) => <a href={item.href}>{item.label}</a>)}
-            </nav>
-          </div>
-        )}
       </header>
       <main>
         <slot />
