@@ -1,0 +1,160 @@
+---
+const priorities = [
+  {
+    attribute: "Document ID & Internal Code",
+    rationale: "Immediate verification that the operator is viewing the exact legal certificate requested.",
+  },
+  {
+    attribute: "Document Description",
+    rationale: "Plain-language summary of purpose and legal scope before checking technical rules.",
+  },
+  {
+    attribute: "Issuing Body Type (Tipo de Órgão)",
+    rationale: "Determines whether the request goes to a notary office (cartório), court, or municipal agency.",
+  },
+  {
+    attribute: "Jurisdiction Instance (Instância)",
+    rationale: "Filters procedural rules (1st vs. 2nd instance) early in the workflow.",
+  },
+  {
+    attribute: "Attributions & Coverage",
+    rationale: "Defines geographic scope (municipal, state) and system compatibility (e.g., PJe).",
+  },
+  {
+    attribute: "Required Input Fields (PF / PJ)",
+    rationale: "Specific data needed from individuals or companies (CPF, mother's name, etc.) to trigger issuance.",
+  },
+  {
+    attribute: "Sub-documents (Desmembramento)",
+    rationale: "Related or derived certificates needed only in edge-case requests.",
+  },
+];
+---
+
+<div class="sorting-matrix">
+  <div class="sorting-heading">
+    <span class="sorting-eyebrow">Card sorting synthesis · N = 5 operators</span>
+    <span class="sorting-note">Consensus information priority</span>
+  </div>
+  <div class="sorting-table-wrap" tabindex="0" aria-label="Card sorting priority table; scroll horizontally to view all columns">
+    <table class="sorting-table">
+      <thead>
+        <tr><th scope="col">Priority rank</th><th scope="col">Data attribute</th><th scope="col">Operational rationale</th></tr>
+      </thead>
+      <tbody>
+        {priorities.map((item, index) => (
+          <tr>
+            <td><span class="rank-badge">{String(index + 1).padStart(2, "0")}</span></td>
+            <th scope="row">{item.attribute}</th>
+            <td>{item.rationale}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<style>
+  .sorting-matrix {
+    overflow: hidden;
+    margin-top: 1.5rem;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: var(--white);
+  }
+
+  .sorting-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    border-bottom: 1px solid var(--line);
+    background: var(--surface);
+    padding: 0.9rem 1rem;
+  }
+
+  .sorting-eyebrow,
+  .sorting-note {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .sorting-eyebrow {
+    color: var(--accent);
+  }
+
+  .sorting-note {
+    color: var(--muted);
+    text-align: right;
+  }
+
+  .sorting-table-wrap {
+    overflow-x: auto;
+  }
+
+  .sorting-table {
+    width: 100%;
+    min-width: 42rem;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 0.82rem;
+  }
+
+  .sorting-table th,
+  .sorting-table td {
+    border-bottom: 1px solid var(--surface);
+    padding: 0.8rem 1rem;
+    vertical-align: top;
+  }
+
+  .sorting-table thead th {
+    background: #fcfbf9;
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: 0.61rem;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .sorting-table tbody th {
+    min-width: 12rem;
+    font-weight: 600;
+  }
+
+  .sorting-table tbody td:last-child {
+    color: var(--muted);
+  }
+
+  .sorting-table tbody tr:last-child th,
+  .sorting-table tbody tr:last-child td {
+    border-bottom: 0;
+  }
+
+  .rank-badge {
+    display: inline-grid;
+    min-width: 1.9rem;
+    min-height: 1.7rem;
+    border-radius: 3px;
+    background: #f5e6e3;
+    color: var(--accent);
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 500;
+    place-items: center;
+  }
+
+  @media (max-width: 520px) {
+    .sorting-heading {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .sorting-note {
+      text-align: left;
+    }
+  }
+</style>

@@ -1,0 +1,74 @@
+---
+import CaseStudy from "../../components/CaseStudy.astro";
+---
+
+<CaseStudy
+  title="Governing AI to untangle"
+  accent="complex fintech workflows."
+  subtitle="Transforming 30 raw spreadsheet requirements into a dual-role credit management prototype in 7 days."
+  role="Product Designer · Information Architecture, AI-Assisted Prototyping, MVP Scoping"
+  domain="Fintech products & B2B financial operations · Credit management"
+  timeline="1-week sprint · Executive client demo"
+  year="2026"
+  tools="FigJam · VS Code + Claude Code · Design System"
+  visual="fintech"
+  gated={true}
+  iaComparison={true}
+  serviceBlueprint={true}
+  fintechGallery={true}
+  sections={[
+    {
+      heading: "The context & constraint",
+      paragraphs: [
+        "High-stakes financial ambiguity, with a one-week deadline. The challenge was to shape a B2B credit lifecycle product for two distinct operational roles: financial institution operators selecting portfolios, approving strategies, and governing risk; and external servicers managing recovery workflows and legal documentation.",
+        "The starting point was an unstructured Excel spreadsheet with around 30 high-level functional requirements across six process macro-phases. There were no wireframes or screen definitions, and just seven days to prepare an interactive prototype for a live client demo.",
+      ],
+    },
+    {
+      heading: "When AI fails at UX architecture",
+      paragraphs: [
+        "AI can generate plausible screens quickly; it does not automatically create a coherent mental model. Before design involvement, the Technology Director had fed the raw spreadsheet requirements into Claude Code. The generated HTML was functional, but its information architecture confused process hierarchy with navigation hierarchy.",
+        "Tasks belonging to a single credit case—documents, activity logs, and approval steps—were promoted to the global sidebar alongside a hardcoded link to one static position. Opening Documents without an active case left users without the context needed to understand what they were viewing.",
+        "The lesson: when each requirement row is treated as a standalone page, the prototype misses the contextual, end-to-end journey connecting them.",
+      ],
+    },
+    {
+      heading: "The architectural intervention",
+      paragraphs: [
+        "Working alongside a senior design peer, I mapped the 30 requirements into a dual-role service blueprint spanning financial institution and Servicer views. To protect the one-week timeline, we scoped only the critical Phase 1 workflows for the prototype and documented Phase 2 dependencies and technical trade-offs in a structured Decision Log.",
+        "I restructured the prototype directly in VS Code through prompt-driven instructions—without manual code edits—shifting the experience from a flat AI-generated menu to a scalable, context-aware product architecture.",
+      ],
+      items: [
+        { title: "Four global views", description: "Portfolio Dashboard, Credit Positions List, Approval Queue for the financial institution view, and SLA / KPI Monitoring." },
+        { title: "Contextual credit case", description: "Position metadata sits in a collapsible accordion; Documents, Audit Log, and Deliberation are nested tabs within the active case." },
+        { title: "Explicit role switcher", description: "A high-contrast financial institution / Servicer selector makes role-specific permissions and visibility boundaries testable." },
+      ],
+    },
+    {
+      heading: "Gap analysis & product decisions",
+      paragraphs: [
+        "Once the navigation was coherent, I asked Claude Code to cross-check the prototype against the original requirements. It surfaced nine edge-case design questions, which I resolved systematically before the demo.",
+      ],
+      items: [
+        { title: "Document validation", description: "Four explicit states—To Upload, Uploaded, Valid, and Invalid—with role-specific permissions: financial institution users upload or re-upload; Servicers request integration and validate." },
+        { title: "Position revocation", description: "Revocation is available in the Approval Queue and position actions, with a mandatory justification modal visible to both roles." },
+        { title: "Strategy catalog", description: "A dependent Approach → Strategy → Typology selection, mandatory notes for custom entries, and catalog editing restricted to Admin Settings." },
+        { title: "Cycle reopening", description: "Servicers can request a formal strategy review, reopening the case as a newly tracked cycle rather than overwriting historical decisions." },
+      ],
+    },
+    {
+      heading: "Executive validation",
+      paragraphs: [
+        "The live prototype was presented to the client's Senior Director of Credit Innovation, Chief Legal Officer, COO, and Servicer representatives. No usability or navigation critiques emerged: stakeholders understood the dual-view model, revocation flows, and distinction between preliminary strategy and final deliberation.",
+        "Feedback focused on business depth—adding granular judicial-recovery subtasks and automated document ingestion—rather than the information architecture. That was a strong signal that the core structure was doing its job.",
+      ],
+    },
+    {
+      heading: "What I took forward",
+      paragraphs: [
+        "Prompt-driven HTML prototyping was exceptionally effective for exploring complex flows and micro-interactions under a tight deadline. The next step still matters: migrating validated structures back into Figma supports component governance, faster UI-copy changes, and a dependable engineering handoff.",
+        "This sprint reinforced the designer's role in governing AI output: the speed of screen generation only becomes useful when requirements are organized around people, roles, and the context of their work.",
+      ],
+    },
+  ]}
+/>

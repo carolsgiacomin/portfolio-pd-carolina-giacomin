@@ -1,0 +1,468 @@
+---
+import SiteLayout from "../../layouts/SiteLayout.astro";
+---
+
+<SiteLayout
+  title="Guido — Navigating Italy's Public Healthcare | Carolina Giacomin"
+  description="Designing a multilingual healthcare assistant for navigating Italy's public healthcare system across language barriers."
+  sidebar={{
+    role: "UX/UI & Service Designer",
+    context: "Healthcare access · Politecnico di Milano",
+    year: "Not specified",
+    toc: [
+      { label: "Overview", href: "#guido-research-title" },
+      { label: "Research & Architecture", href: "#guido-journey-title" },
+      { label: "Key Decisions", href: "#guido-conversation-title" },
+      { label: "Outcome", href: "#guido-takeaways-title" },
+    ],
+  }}
+>
+  <article class="guido-case">
+    <header class="guido-hero">
+      <a class="back-link" href="/#work">← Back to selected work</a>
+      <div class="guido-meta-top">
+        <span class="guido-eyebrow">Healthcare service &amp; conversational UX</span>
+        <span class="guido-eyebrow">Politecnico di Milano · MSc Interaction Design</span>
+      </div>
+      <h1 class="case-title">Guido: Navigating Italy’s Public Healthcare System Across Language Barriers</h1>
+      <p class="guido-subtitle">Designing an end-to-end multilingual healthcare assistant combining a profile-trained conversational engine, face-to-face clinical translation, and bilingual medical document management.</p>
+
+      <dl class="guido-specs">
+        <div><dt>Role</dt><dd>UX/UI &amp; Service Designer</dd></div>
+        <div><dt>Academic studio</dt><dd>Applied Informatics · Politecnico di Milano · 4 designers</dd></div>
+        <div><dt>Methods</dt><dd>Dual-sided interviews · UNG model · Service flows</dd></div>
+        <div><dt>Key deliverables</dt><dd>UNG model · Service flows · 5-branch chatbot IA</dd></div>
+      </dl>
+    </header>
+
+    <section class="guido-section" aria-labelledby="guido-research-title">
+      <div class="guido-section-heading">
+        <span class="guido-eyebrow">User research &amp; UNG modeling</span>
+        <h2 id="guido-research-title">Solving friction for both non-Italian patients and emergency medical staff</h2>
+      </div>
+      <div class="guido-section-body">
+        <p>Accessing Italy’s National Health Service (<em>Servizio Sanitario Nazionale — SSN</em>) requires navigating regional authorities (ASL), family doctor registrations, and mandatory prescriptions (<em>impegnativa</em>). For international students, expatriates, and immigrants, language barriers can turn routine care into high-stress situations.</p>
+        <p>Through desk research and interviews with foreign patients and Italian emergency room physicians, we found that clinicians could treat up to 20 non-Italian speakers during a 25-patient shift without access to hospital translators. The research surfaced several systemic gaps:</p>
+
+        <ul class="guido-list">
+          <li><strong>Generic translators fall short in clinical settings.</strong> Standard translation apps can feel unnatural in face-to-face consultations, lack medical context, and require constant device handoffs.</li>
+          <li><strong>English is not a universal bridge.</strong> Some newcomers speak neither Italian nor English, while official consent forms and prescriptions are available only in Italian.</li>
+          <li><strong>Reliability and legal boundaries matter.</strong> Automated translations cannot provide medical diagnoses or legal accountability. The product therefore focuses on procedural guidance and communication support.</li>
+        </ul>
+
+        <div class="guido-table-wrap" tabindex="0" aria-label="Competitor benchmarking table; scroll horizontally to view all columns">
+          <table class="guido-table">
+            <caption>
+              <span class="guido-eyebrow">Competitive benchmarking</span>
+              <span>Identifying the unserved product gap</span>
+            </caption>
+            <thead>
+              <tr><th scope="col">Existing solution</th><th scope="col">Strengths</th><th scope="col">Critical gap for SSN navigation</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">MedInAction</th><td>24/7 English-speaking doctors and direct insurance billing.</td><td>Private and expensive; limited to major tourist cities and English only.</td></tr>
+              <tr><th scope="row">Medibabble / Universal Doctor</th><td>Offline medical phrase databases categorized by clinical topic.</td><td>Rigid pre-made phrases and outdated interfaces with limited conversational flow.</td></tr>
+              <tr><th scope="row">salute.gov.it</th><td>Official Ministry of Health source with reliable SSN rules.</td><td>Dense, disorganized static pages can be overwhelming in urgent situations.</td></tr>
+              <tr><th scope="row">Google Translate</th><td>Broad language support, voice and camera input, and wide accessibility.</td><td>Not designed for structured two-way clinical dialogue or bureaucratic triage.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="guido-section" aria-labelledby="guido-journey-title">
+      <div class="guido-section-heading">
+        <span class="guido-eyebrow">Service architecture &amp; product pillars</span>
+        <h2 id="guido-journey-title">Supporting the patient journey: before, during, and after the visit</h2>
+      </div>
+      <div class="guido-section-body">
+        <p>Using the <strong>UNG (Users, Needs, Goals)</strong> framework, we mapped three personas—an Erasmus student (<em>Clara, 20</em>), an emergency room doctor (<em>Marta, 47</em>), and an Arabic-speaking mother (<em>Lena, 40</em>)—across parallel real-world and in-app service flows.</p>
+
+        <div class="guido-pillars">
+          <article class="guido-pillar">
+            <span class="guido-eyebrow">Before the visit</span>
+            <h3>Profile-trained guidance chatbot</h3>
+            <p>Five decision branches cover Healthcare System, Appointments, Documents, Pharmacies, and Emergency. When users optionally add their <em>Tessera Sanitaria</em> status or address, Guido can offer tailored local instructions, such as a regional ASL office or on-duty pharmacy.</p>
+          </article>
+          <article class="guido-pillar">
+            <span class="guido-eyebrow">During the visit</span>
+            <h3>Split-screen clinical translator</h3>
+            <p>Designed to sit between doctor and patient, with an inverted physician-facing screen, live speech-to-text verification, and audio playback. The concept does not retain conversation audio.</p>
+          </article>
+          <article class="guido-pillar">
+            <span class="guido-eyebrow">After the visit</span>
+            <h3>Bilingual document vault</h3>
+            <p>Patients scan handwritten or printed Italian prescriptions and discharge papers to create translated copies, keeping each original paired with a version in their preferred language.</p>
+          </article>
+          <article class="guido-pillar">
+            <span class="guido-eyebrow">Urgent triage</span>
+            <h3>One-tap emergency &amp; medical ID</h3>
+            <p>A high-contrast emergency path distinguishes life-threatening situations and 112 calls from non-urgent night or weekend care (<em>Guardia Medica</em>), alongside a quick-access card for blood type, allergies, and medications.</p>
+          </article>
+        </div>
+
+        <figure class="guido-figure">
+          <div class="guido-figure-frame">
+            <img src="/images/guido-ui-overview.png" alt="Guido split-screen clinical translator and multilingual chatbot home" loading="lazy" decoding="async" />
+          </div>
+          <figcaption>
+            <span class="guido-eyebrow">Interface design / Triage home &amp; guided healthcare assistant</span>
+            <p>Service-routing home screen paired with Guido, a profile-aware conversational assistant that clarifies administrative steps (such as obtaining a prescription) and directs users to the right care pathway.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="guido-figure">
+          <div class="guido-figure-frame">
+            <img src="/images/guido-service-flows.png" alt="Service interaction flow mapping real-world clinical steps alongside mobile app actions" loading="lazy" decoding="async" />
+          </div>
+          <figcaption>
+            <span class="guido-eyebrow">Service blueprint / Real-world &amp; in-app interactions</span>
+            <p>Connecting physical healthcare interactions, such as consultations and paper prescriptions, with digital capture and translation.</p>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="guido-section" aria-labelledby="guido-conversation-title">
+      <div class="guido-section-heading">
+        <span class="guido-eyebrow">Conversational logic &amp; information architecture</span>
+        <h2 id="guido-conversation-title">Structuring a five-branch decision tree with progressive personalization</h2>
+      </div>
+      <div class="guido-section-body">
+        <p>To help users avoid getting lost in open-ended prompts during stressful medical situations, Guido’s conversational architecture combines rule-based institutional explanations with shortcuts informed by the user’s profile and location.</p>
+        <ul class="guido-list">
+          <li><strong>Generic and profile-trained nodes.</strong> Users can ask questions without creating an account. If they choose to add their <em>Tessera Sanitaria</em> status, address, or family doctor’s schedule, the experience can offer personalized shortcuts such as local ASL offices or doctor availability.</li>
+          <li><strong>Emergency triage guardrails.</strong> The flow distinguishes life-threatening situations, with a one-tap 112 call and a script for key location and symptom details, from non-urgent after-hours care (<em>Guardia Medica</em>).</li>
+          <li><strong>An end-to-end prescription loop.</strong> In the appointment branch, scanning a prescription connects users to specialist matching and hospital lookup.</li>
+        </ul>
+
+        <figure class="guido-tree">
+          <figcaption class="guido-tree-header">
+            <div>
+              <span class="guido-eyebrow">Conversational information architecture</span>
+              <h3>Five-branch decision tree: generic rules vs. profile-trained shortcuts</h3>
+            </div>
+            <span class="guido-tree-hint">← Scroll horizontally to inspect nodes →</span>
+          </figcaption>
+          <div class="guido-tree-scroll" role="region" aria-label="Scrollable five-branch chatbot decision tree" tabindex="0">
+            <img src="/images/guido-chatbot-tree.png" alt="Full five-branch decision tree structure for the Guido healthcare chatbot" loading="lazy" decoding="async" />
+          </div>
+        </figure>
+      </div>
+    </section>
+
+    <section class="guido-section" aria-labelledby="guido-takeaways-title">
+      <div class="guido-section-heading">
+        <span class="guido-eyebrow">Reflection &amp; product takeaways</span>
+        <h2 id="guido-takeaways-title">Turning institutional complexity into calm, guided action</h2>
+      </div>
+      <div class="guido-section-body">
+        <p>Working on Guido taught me to design for progressive personalization: the app should offer immediate value without forcing registration during an emergency, while a more complete profile can enable smarter, location-aware guidance. Mapping physical hospital interactions alongside conversational decision trees helped ensure each screen addressed a real bottleneck for patients and medical staff.</p>
+      </div>
+    </section>
+  </article>
+
+  <style>
+    .guido-case {
+      padding-bottom: 2rem;
+    }
+
+    .guido-hero {
+      padding-top: clamp(4rem, 8vw, 7rem);
+      padding-bottom: clamp(2.5rem, 5vw, 4rem);
+    }
+
+    .guido-meta-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.75rem 1.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+
+    .guido-eyebrow {
+      color: var(--accent);
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      line-height: 1.6;
+      text-transform: uppercase;
+    }
+
+    .guido-hero .case-title {
+      max-width: 16ch;
+      margin-top: 0;
+    }
+
+    .guido-subtitle {
+      max-width: 48rem;
+      margin: 0 0 2.5rem;
+      color: var(--muted);
+      font-size: clamp(1rem, 1.5vw, 1.2rem);
+    }
+
+    .guido-specs {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+      margin: 0;
+      border-block: 1px solid var(--line);
+      padding-block: 1.1rem;
+    }
+
+    .guido-specs dt {
+      margin-bottom: 0.4rem;
+      color: var(--muted);
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .guido-specs dd {
+      margin: 0;
+      font-size: 0.82rem;
+      line-height: 1.55;
+    }
+
+    .guido-section {
+      display: grid;
+      grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
+      gap: clamp(2rem, 8vw, 8rem);
+      border-top: 1px solid var(--line);
+      padding-block: clamp(3rem, 7vw, 6rem);
+    }
+
+    .guido-section-heading h2 {
+      margin: 0.7rem 0 0;
+      font-size: clamp(1.9rem, 3.6vw, 3.25rem);
+      font-weight: 500;
+      letter-spacing: -0.035em;
+      line-height: 1.08;
+    }
+
+    .guido-section-body {
+      min-width: 0;
+    }
+
+    .guido-section-body > p,
+    .guido-list {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .guido-section-body > p:first-child {
+      margin-top: 0;
+    }
+
+    .guido-list {
+      display: grid;
+      gap: 0.8rem;
+      margin: 1.25rem 0 0;
+      padding-left: 1.2rem;
+      line-height: 1.65;
+    }
+
+    .guido-list strong {
+      color: var(--ink);
+    }
+
+    .guido-table-wrap {
+      overflow-x: auto;
+      margin-top: 1.75rem;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--white);
+      scrollbar-color: var(--line) var(--surface);
+    }
+
+    .guido-table {
+      width: 100%;
+      min-width: 40rem;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.76rem;
+      line-height: 1.55;
+    }
+
+    .guido-table caption {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem 1rem;
+      flex-wrap: wrap;
+      border-bottom: 1px solid var(--line);
+      background: var(--surface);
+      padding: 0.75rem 0.9rem;
+      color: var(--muted);
+      text-align: left;
+    }
+
+    .guido-table th,
+    .guido-table td {
+      border-bottom: 1px solid var(--surface);
+      padding: 0.7rem 0.8rem;
+      vertical-align: top;
+    }
+
+    .guido-table thead th {
+      background: #fcfbf9;
+      color: var(--muted);
+      font-family: var(--font-mono);
+      font-size: 0.58rem;
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .guido-table tbody th {
+      min-width: 9.5rem;
+      font-weight: 600;
+    }
+
+    .guido-table tbody td:last-child {
+      color: var(--muted);
+    }
+
+    .guido-table tbody tr:last-child th,
+    .guido-table tbody tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .guido-pillars {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.8rem;
+      margin-top: 1.5rem;
+    }
+
+    .guido-pillar {
+      border: 1px solid var(--line);
+      border-radius: 5px;
+      background: var(--white);
+      padding: 1rem;
+    }
+
+    .guido-pillar h3 {
+      margin: 0.35rem 0 0.55rem;
+      font-size: 1rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+    }
+
+    .guido-pillar p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.8rem;
+      line-height: 1.6;
+    }
+
+    .guido-figure {
+      overflow: hidden;
+      margin: 1.75rem 0 0;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--white);
+    }
+
+    .guido-figure-frame {
+      border-bottom: 1px solid var(--line);
+      background: var(--surface);
+      padding: clamp(0.65rem, 2vw, 1.1rem);
+    }
+
+    .guido-figure-frame img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 3px;
+    }
+
+    .guido-figure figcaption {
+      padding: 0.85rem 1rem;
+    }
+
+    .guido-figure figcaption p {
+      margin: 0.3rem 0 0;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    .guido-tree {
+      overflow: hidden;
+      margin: 1.75rem 0 0;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--white);
+    }
+
+    .guido-tree-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 0.75rem 1rem;
+      flex-wrap: wrap;
+      border-bottom: 1px solid var(--line);
+      background: var(--paper);
+      padding: 0.9rem 1rem;
+    }
+
+    .guido-tree-header h3 {
+      margin: 0.3rem 0 0;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    .guido-tree-hint {
+      color: var(--muted);
+      font-family: var(--font-mono);
+      font-size: 0.57rem;
+      text-transform: uppercase;
+    }
+
+    .guido-tree-scroll {
+      max-width: 100%;
+      overflow-x: auto;
+      overscroll-behavior-x: contain;
+      padding: 1rem;
+      scrollbar-color: var(--line) var(--surface);
+    }
+
+    .guido-tree-scroll img {
+      display: block;
+      width: auto;
+      height: 360px;
+      max-width: none;
+    }
+
+    .guido-tree-scroll:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: -3px;
+    }
+
+    @media (max-width: 760px) {
+      .guido-specs {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .guido-section {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .guido-meta-top {
+        flex-direction: column;
+      }
+
+      .guido-pillars {
+        grid-template-columns: 1fr;
+      }
+
+      .guido-tree-scroll img {
+        height: 260px;
+      }
+    }
+  </style>
+</SiteLayout>

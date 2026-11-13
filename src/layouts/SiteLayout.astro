@@ -1,0 +1,113 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+  sidebar?: {
+    role: string;
+    context: string;
+    year: string;
+    toc: { label: string; href: string }[];
+  };
+}
+
+const {
+  title = "Carolina Giacomin — Product Designer",
+  description = "Product Designer building clear, thoughtful experiences for complex B2B and SaaS products.",
+  sidebar,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#F8F7F4" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="wordmark" href="/" aria-label="Carolina Giacomin home">carolina giacomin</a>
+        <nav class="desktop-nav" aria-label="Main navigation">
+          <a href="/#work">Selected work</a>
+          <a href="/#capabilities">Focus &amp; practice</a>
+          <a href="/#about">About</a>
+          <a href="/resume/">Resume</a>
+        </nav>
+        <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+          <span aria-hidden="true"></span>
+        </button>
+        <nav class="mobile-nav" id="mobile-menu" aria-label="Mobile navigation" inert>
+          <a href="/#work">Selected work</a>
+          <a href="/#capabilities">Focus &amp; practice</a>
+          <a href="/#about">About</a>
+          <a href="/resume/">Resume</a>
+        </nav>
+        {sidebar && (
+          <div class="case-header-context">
+            <div class="case-header-meta" aria-label="Project metadata">
+              <div><span>Role</span><p>{sidebar.role}</p></div>
+              <div><span>Context</span><p>{sidebar.context}</p></div>
+              <div><span>Year</span><p>{sidebar.year}</p></div>
+            </div>
+            <nav class="case-toc" aria-label="On this page">
+              <span class="case-toc-title">On this page</span>
+              {sidebar.toc.map((item) => <a href={item.href}>{item.label}</a>)}
+            </nav>
+          </div>
+        )}
+      </header>
+      <main>
+        <slot />
+      </main>
+      <footer class="site-footer">
+        <div class="footer-contact">
+          <span class="eyebrow">Contact</span>
+          <a class="footer-link" href="mailto:hello@carolinagiacomin.com">hello@carolinagiacomin.com <span aria-hidden="true">↗</span></a>
+        </div>
+        <nav class="footer-links" aria-label="Footer navigation">
+          <a class="footer-link" href="/#work">Work <span aria-hidden="true">↗</span></a>
+          <a class="footer-link" href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+          <a class="footer-link" href="/resume/">Print / Save CV as PDF <span aria-hidden="true">↗</span></a>
+        </nav>
+        <div class="footer-bottom">
+          <span class="footer-note">© 2026 — Designed &amp; built with Astro + AI</span>
+          <span class="footer-note">Milan / Remote</span>
+        </div>
+      </footer>
+    </div>
+    <script>
+      const menuButton = document.querySelector<HTMLButtonElement>(".menu-toggle");
+      const mobileMenu = document.querySelector<HTMLElement>("#mobile-menu");
+
+      if (menuButton && mobileMenu) {
+        const closeMenu = () => {
+          menuButton.setAttribute("aria-expanded", "false");
+          menuButton.setAttribute("aria-label", "Open menu");
+          mobileMenu.classList.remove("is-open");
+          mobileMenu.inert = true;
+        };
+
+        menuButton.addEventListener("click", () => {
+          const isOpen = menuButton.getAttribute("aria-expanded") === "true";
+          menuButton.setAttribute("aria-expanded", String(!isOpen));
+          menuButton.setAttribute("aria-label", isOpen ? "Open menu" : "Close menu");
+          mobileMenu.classList.toggle("is-open", !isOpen);
+          mobileMenu.inert = isOpen;
+        });
+
+        mobileMenu.addEventListener("click", (event) => {
+          if (event.target instanceof HTMLAnchorElement) closeMenu();
+        });
+
+        document.addEventListener("keydown", (event) => {
+          if (event.key === "Escape") closeMenu();
+        });
+      }
+    </script>
+  </body>
+</html>

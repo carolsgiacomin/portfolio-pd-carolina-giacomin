@@ -1,0 +1,49 @@
+---
+interface Props {
+  title: string;
+  context: string;
+  year: string;
+  outcome: string;
+  href: string;
+  visual: "fintech" | "legal" | "health" | "archive";
+  badge?: string;
+}
+
+const { title, context, year, outcome, href, visual, badge } = Astro.props;
+const coverImage = visual === "archive"
+  ? "/images/aiart_cover.jpg"
+  : visual === "health"
+    ? "/images/guido-ui-overview.png"
+    : undefined;
+---
+
+<a class="project-card" href={href} aria-label={`${title} — view case study`}>
+  <div class={`project-visual ${visual}-visual`} aria-hidden="true">
+    <span class="visual-index">Project preview</span>
+    {badge && <span class="nda-badge">{badge}</span>}
+    {coverImage && <img class="project-cover" src={coverImage} alt="" loading="lazy" decoding="async" />}
+    <div class={`product-window ${visual}-window`}>
+      <div class="window-top"><span>{visual === "fintech" ? "Fintech Products" : visual === "legal" ? "Docket Atlas" : visual === "health" ? "Guido / Care" : "AI Art Archive"}</span><span>Workspace · Overview</span></div>
+      {visual === "fintech" && (
+        <div class="window-body">
+          <div class="window-sidebar"><i class="ui-line accent"></i><i class="ui-line"></i><i class="ui-line short"></i><i class="ui-line"></i><i class="ui-line medium"></i></div>
+          <div class="window-content"><i class="ui-heading"></i><i class="ui-line medium"></i><div class="ui-table">{[1, 2, 3, 4].map(() => <div class="ui-table-row"><i class="ui-line"></i><i class="ui-line"></i><i class="ui-line"></i></div>)}</div></div>
+        </div>
+      )}
+      {visual === "legal" && (
+        <div class="window-body"><div class="window-content"><i class="ui-heading"></i><i class="ui-line medium"></i><div class="legal-tags"><span></span><span></span><span></span></div><div class="ui-table">{[1, 2, 3].map(() => <div class="ui-table-row"><i class="ui-line"></i><i class="ui-line"></i><i class="ui-line"></i></div>)}</div></div></div>
+      )}
+      {visual === "health" && (
+        <div class="window-body"><div class="window-content"><div><i class="ui-heading"></i><i class="ui-line medium"></i><i class="ui-line"></i><i class="ui-line short"></i></div><div class="health-orb">+</div></div></div>
+      )}
+      {visual === "archive" && (
+        <div class="window-body"><div class="window-content">{[1, 2, 3, 4, 5, 6].map(() => <i class="archive-tile"></i>)}</div></div>
+      )}
+    </div>
+  </div>
+  <div class="project-info">
+    <p class="project-meta"><span>{context}</span><span aria-hidden="true">·</span><span>{year}</span></p>
+    <div class="project-title-row"><h3>{title}</h3><span class="project-arrow" aria-hidden="true">↗</span></div>
+    <p class="project-outcome">{outcome}</p>
+  </div>
+</a>

@@ -1,0 +1,351 @@
+<section class="ia-comparison" aria-labelledby="ia-comparison-title">
+  <div class="ia-comparison-header">
+    <span class="ia-eyebrow">Information architecture comparison</span>
+    <h3 id="ia-comparison-title">AI Raw Output vs. Designer-Led Hierarchy</h3>
+    <p>How restructuring process hierarchy vs. navigation hierarchy eliminated user disorientation across 30+ requirements.</p>
+  </div>
+
+  <div class="ia-grid">
+    <article class="ia-card ia-card--flawed">
+      <div class="ia-card-top">
+        <span class="ia-badge ia-badge--error">V1 · Raw AI generation (flawed)</span>
+        <span class="ia-tag">Flat requirement mapping</span>
+      </div>
+
+      <div class="ia-mockup">
+        <div class="ia-sidebar">
+          <div class="ia-sidebar-label">Global sidebar menu</div>
+          <ul class="ia-menu-list">
+            <li class="ia-menu-item">Dashboard</li>
+            <li class="ia-menu-item">Lista Posizioni</li>
+            <li class="ia-menu-item ia-menu-item--broken">
+              <span>Documenti</span>
+              <span class="ia-pill-warn">Which case?</span>
+            </li>
+            <li class="ia-menu-item ia-menu-item--broken">
+              <span>Messaggi / Log</span>
+              <span class="ia-pill-warn">No context</span>
+            </li>
+            <li class="ia-menu-item ia-menu-item--broken">
+              <span>Scheda Posizione #104</span>
+              <span class="ia-pill-warn">Hardcoded</span>
+            </li>
+            <li class="ia-menu-item ia-menu-item--broken">
+              <span>Delibera</span>
+              <span class="ia-pill-warn">Step, not view</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="ia-canvas ia-canvas--broken">
+          <p class="ia-note-error">
+            <strong>Core issue:</strong> Workflow steps belonging to a single credit position were placed at the top navigation level, leaving operators without active case context.
+          </p>
+        </div>
+      </div>
+    </article>
+
+    <article class="ia-card ia-card--valid">
+      <div class="ia-card-top">
+        <span class="ia-badge ia-badge--success">V2 · Restructured IA (validated)</span>
+        <span class="ia-tag">Contextual mental model</span>
+      </div>
+
+      <div class="ia-mockup">
+        <div class="ia-sidebar">
+          <div class="ia-sidebar-label">4 global pillars</div>
+          <ul class="ia-menu-list">
+            <li class="ia-menu-item">Portfolio Dashboard</li>
+            <li class="ia-menu-item ia-menu-item--active">Credit Positions</li>
+            <li class="ia-menu-item">Approval Queue</li>
+            <li class="ia-menu-item">SLA &amp; KPI Monitor</li>
+          </ul>
+        </div>
+
+        <div class="ia-canvas ia-canvas--valid">
+          <div class="ia-nested-box">
+            <div class="ia-nested-header">
+              <span>Contextual case view (on selection)</span>
+              <span class="ia-role-pill">Role: Bank ↔ Servicer</span>
+            </div>
+            <div class="ia-accordion-bar">▾ Position Metadata Accordion (Summary, SLA, Status)</div>
+            <div class="ia-tabs-row">
+              <span class="ia-tab ia-tab--active">Documents (4-State)</span>
+              <span class="ia-tab">Audit Log</span>
+              <span class="ia-tab">Deliberation</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<style>
+  .ia-comparison {
+    margin: 0 0 clamp(3rem, 6vw, 5rem);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--surface);
+    padding: clamp(1rem, 3vw, 2rem);
+  }
+
+  .ia-comparison-header {
+    margin-bottom: 1.75rem;
+  }
+
+  .ia-eyebrow {
+    display: block;
+    margin-bottom: 0.4rem;
+    color: var(--accent);
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .ia-comparison-header h3 {
+    margin: 0 0 0.4rem;
+    color: var(--ink);
+    font-size: clamp(1.2rem, 2.2vw, 1.6rem);
+    font-weight: 500;
+    letter-spacing: -0.025em;
+  }
+
+  .ia-comparison-header p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+
+  .ia-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .ia-card {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    gap: 1rem;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: var(--white);
+    padding: clamp(0.85rem, 2vw, 1.25rem);
+  }
+
+  .ia-card--valid {
+    border-color: var(--accent);
+  }
+
+  .ia-card-top {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 0.75rem;
+  }
+
+  .ia-badge,
+  .ia-tag,
+  .ia-sidebar-label,
+  .ia-pill-warn,
+  .ia-nested-header {
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+  }
+
+  .ia-badge {
+    border-radius: 3px;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.61rem;
+    font-weight: 500;
+  }
+
+  .ia-badge--error {
+    background: #fee2e2;
+    color: #991b1b;
+  }
+
+  .ia-badge--success {
+    background: #f5e6e3;
+    color: var(--accent);
+  }
+
+  .ia-tag {
+    color: var(--muted);
+    font-size: 0.58rem;
+  }
+
+  .ia-mockup {
+    display: grid;
+    gap: 0.75rem;
+  }
+
+  .ia-sidebar {
+    border: 1px solid var(--line);
+    border-radius: 5px;
+    background: var(--paper);
+    padding: 0.75rem;
+  }
+
+  .ia-sidebar-label {
+    margin-bottom: 0.6rem;
+    color: var(--muted);
+    font-size: 0.58rem;
+    letter-spacing: 0.05em;
+  }
+
+  .ia-menu-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .ia-menu-item {
+    display: flex;
+    min-width: 0;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.4rem;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    background: var(--white);
+    padding: 0.38rem 0.5rem;
+    color: var(--ink);
+    font-size: 0.7rem;
+  }
+
+  .ia-menu-item--broken {
+    border-style: dashed;
+    border-color: #dc2626;
+    background: #fef2f2;
+  }
+
+  .ia-menu-item--active {
+    border-color: var(--accent);
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  .ia-pill-warn {
+    flex: 0 0 auto;
+    border-radius: 3px;
+    background: #fee2e2;
+    padding: 0.1rem 0.3rem;
+    color: #b91c1c;
+    font-size: 0.53rem;
+  }
+
+  .ia-canvas {
+    display: flex;
+    min-height: 7rem;
+    align-items: center;
+    border-radius: 5px;
+    padding: 0.75rem;
+  }
+
+  .ia-canvas--broken {
+    background: #fef2f2;
+  }
+
+  .ia-canvas--valid {
+    background: #f5e6e3;
+  }
+
+  .ia-note-error {
+    margin: 0;
+    border-left: 2px solid #dc2626;
+    border-radius: 2px;
+    background: var(--white);
+    padding: 0.7rem;
+    color: #7f1d1d;
+    font-size: 0.76rem;
+    line-height: 1.5;
+  }
+
+  .ia-nested-box {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 0.55rem;
+    border: 1px solid var(--accent);
+    border-radius: 5px;
+    background: var(--paper);
+    padding: 0.7rem;
+  }
+
+  .ia-nested-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--accent);
+    font-size: 0.54rem;
+    font-weight: 500;
+  }
+
+  .ia-role-pill {
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    background: var(--white);
+    padding: 0.15rem 0.35rem;
+    color: var(--ink);
+    white-space: nowrap;
+  }
+
+  .ia-accordion-bar {
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    background: var(--white);
+    padding: 0.42rem 0.55rem;
+    color: var(--muted);
+    font-size: 0.68rem;
+  }
+
+  .ia-tabs-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+
+  .ia-tab {
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    background: var(--white);
+    padding: 0.28rem 0.45rem;
+    color: var(--muted);
+    font-size: 0.63rem;
+  }
+
+  .ia-tab--active {
+    border-color: var(--accent);
+    background: var(--accent);
+    color: var(--white);
+    font-weight: 500;
+  }
+
+  @media (max-width: 900px) {
+    .ia-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .ia-nested-header {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
+    .ia-menu-item {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+  }
+</style>

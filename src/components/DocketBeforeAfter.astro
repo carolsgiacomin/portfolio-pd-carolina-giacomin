@@ -1,0 +1,463 @@
+<section class="docket-comparison" aria-labelledby="docket-comparison-title">
+  <div class="comparison-header">
+    <p class="comparison-eyebrow">Interactive interface comparison</p>
+    <h3 id="docket-comparison-title">From nested tabs to a scannable dashboard</h3>
+    <p>Toggle between the legacy interface and the redesigned architecture to inspect the structural changes.</p>
+  </div>
+
+  <div class="ba-widget" data-docket-comparison>
+    <div class="ba-controls">
+      <div class="ba-toggle-group" role="tablist" aria-label="Choose an interface to preview">
+        <button class="ba-btn" id="docket-tab-before" type="button" role="tab" aria-selected="false" aria-controls="docket-panel-before" tabindex="-1" data-view="before">
+          Before: Legacy Tabbed UI
+        </button>
+        <button class="ba-btn ba-btn--active" id="docket-tab-after" type="button" role="tab" aria-selected="true" aria-controls="docket-panel-after" tabindex="0" data-view="after">
+          After: Redesigned Dashboard UI
+        </button>
+      </div>
+      <span class="comparison-status" data-status role="status" aria-live="polite">Showing: flattened dashboard + granular editing</span>
+    </div>
+
+    <div class="ba-panel" id="docket-panel-before" role="tabpanel" aria-labelledby="docket-tab-before" data-panel="before" hidden tabindex="0">
+      <div class="mock-window">
+        <div class="mock-topbar">
+          <span>Atlas Legacy · Documento A (ID: 1 · Code: 1234567890)</span>
+          <span class="mock-badge mock-badge--warn">4 nested tabs · single global edit</span>
+        </div>
+        <div class="mock-legacy-tabs">
+          <span class="mock-ltab mock-ltab--active">General Info</span>
+          <span class="mock-ltab">Issuing Bodies [Hidden]</span>
+          <span class="mock-ltab">Required Fields [Hidden]</span>
+          <span class="mock-ltab">Sub-docs [Hidden]</span>
+        </div>
+        <div class="mock-legacy-body">
+          <div class="mock-legacy-row">
+            <div>
+              <p class="mock-field-label">Name Variations</p>
+              <p class="mock-field-val">Documento AB, Certidão A, Documento de A</p>
+              <p class="mock-field-label mock-field-label--spaced">Issuance Type</p>
+              <p class="mock-field-val">Online (Avg. turnaround: 5 business days)</p>
+            </div>
+            <button type="button" class="mock-edit-btn" disabled>Edit Entire Page</button>
+          </div>
+          <div class="mock-callout mock-callout--warn">
+            <strong>UX friction:</strong> 75% of operational rules are invisible on load. Operators must click across four tabs with ambiguous icons and edit the entire record at once, discouraging quick updates.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ba-panel" id="docket-panel-after" role="tabpanel" aria-labelledby="docket-tab-after" data-panel="after" tabindex="0">
+      <div class="mock-window mock-window--active">
+        <div class="mock-topbar">
+          <span>Atlas Redesigned · <strong>#001 Property Registry Certificate</strong></span>
+          <span class="mock-badge mock-badge--ok">0 nested tabs · section-level CRUD</span>
+        </div>
+        <div class="mock-dashboard-grid">
+          <article class="mock-dash-card mock-dash-card--full">
+            <div class="mock-card-head">
+              <span class="mock-card-title">Document overview &amp; description</span>
+              <button type="button" class="mock-edit-pill">✎ Edit section</button>
+            </div>
+            <p class="mock-card-text">Official real estate registry certificate verifying property ownership, liens, and historical transfers for legal due diligence.</p>
+          </article>
+          <article class="mock-dash-card">
+            <div class="mock-card-head">
+              <span class="mock-card-title">Issuing body &amp; rules</span>
+              <button type="button" class="mock-edit-pill">✎ Edit section</button>
+            </div>
+            <ul class="mock-kv-list">
+              <li><span>Issuing Body:</span><strong>Real Estate Registry (Cartório)</strong></li>
+              <li><span>Scope / PJe:</span><strong>Municipal · PJe Compatible</strong></li>
+              <li><span>Delivery:</span><strong>Digital PDF (2–5 days)</strong></li>
+            </ul>
+          </article>
+          <article class="mock-dash-card">
+            <div class="mock-card-head">
+              <span class="mock-card-title">Required input fields</span>
+              <button type="button" class="mock-edit-pill">✎ Edit section</button>
+            </div>
+            <div class="mock-pills-wrap">
+              <span class="mock-data-pill">Full Name (Required)</span>
+              <span class="mock-data-pill">CPF / CNPJ (Required)</span>
+              <span class="mock-data-pill">Registry Number (Matrícula)</span>
+              <span class="mock-data-pill">Online / Offline Flag</span>
+            </div>
+          </article>
+        </div>
+        <div class="mock-callout mock-callout--ok">
+          <strong>Design impact:</strong> High-priority attributes sit one level shallower on a scannable canvas. Independent section editing helps operators keep records accurate without changing unrelated data.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .docket-comparison {
+    margin-top: 1.5rem;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--surface);
+    padding: clamp(1rem, 3vw, 1.5rem);
+  }
+
+  .comparison-header {
+    margin-bottom: 1.25rem;
+  }
+
+  .comparison-eyebrow {
+    margin: 0 0 0.45rem;
+    color: var(--accent);
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .comparison-header h3 {
+    margin: 0 0 0.4rem;
+    font-size: clamp(1.2rem, 2.3vw, 1.65rem);
+    font-weight: 500;
+    letter-spacing: -0.025em;
+  }
+
+  .comparison-header > p:last-child {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.88rem;
+  }
+
+  .ba-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+  }
+
+  .ba-toggle-group {
+    display: inline-flex;
+    gap: 0.2rem;
+    border-radius: 6px;
+    background: #e5e2dc;
+    padding: 0.22rem;
+  }
+
+  .ba-btn {
+    border: 0;
+    border-radius: 4px;
+    background: transparent;
+    padding: 0.52rem 0.7rem;
+    color: var(--muted);
+    font: inherit;
+    font-size: 0.75rem;
+    cursor: pointer;
+  }
+
+  .ba-btn[aria-selected="true"] {
+    background: var(--white);
+    color: var(--ink);
+    box-shadow: 0 1px 3px #00000014;
+  }
+
+  .comparison-status {
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: 0.58rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .ba-panel[hidden] {
+    display: none;
+  }
+
+  .mock-window {
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: var(--white);
+  }
+
+  .mock-window--active {
+    border-color: var(--accent);
+  }
+
+  .mock-topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    border-bottom: 1px solid var(--line);
+    background: var(--paper);
+    padding: 0.75rem 1rem;
+    font-size: 0.76rem;
+  }
+
+  .mock-badge {
+    border-radius: 3px;
+    padding: 0.2rem 0.45rem;
+    font-family: var(--font-mono);
+    font-size: 0.57rem;
+    text-transform: uppercase;
+  }
+
+  .mock-badge--warn {
+    background: #fef3c7;
+    color: #92400e;
+  }
+
+  .mock-badge--ok {
+    background: #f5e6e3;
+    color: var(--accent);
+  }
+
+  .mock-legacy-tabs {
+    display: flex;
+    overflow-x: auto;
+    border-bottom: 1px solid var(--line);
+    background: #f9f8f5;
+  }
+
+  .mock-ltab {
+    flex: 0 0 auto;
+    border-right: 1px solid var(--line);
+    padding: 0.6rem 0.75rem;
+    color: #9ca3af;
+    font-size: 0.68rem;
+  }
+
+  .mock-ltab--active {
+    border-bottom: 2px solid #9ca3af;
+    background: var(--white);
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  .mock-legacy-body {
+    padding: 1rem;
+  }
+
+  .mock-legacy-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .mock-field-label {
+    margin: 0 0 0.15rem;
+    color: var(--muted);
+    font-size: 0.68rem;
+  }
+
+  .mock-field-label--spaced {
+    margin-top: 0.7rem;
+  }
+
+  .mock-field-val {
+    margin: 0;
+    font-size: 0.8rem;
+  }
+
+  .mock-edit-btn {
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    background: var(--surface);
+    padding: 0.35rem 0.6rem;
+    color: var(--muted);
+    font-size: 0.68rem;
+  }
+
+  .mock-callout {
+    border-top: 1px solid var(--line);
+    padding: 0.75rem 1rem;
+    font-size: 0.75rem;
+    line-height: 1.5;
+  }
+
+  .mock-callout--warn {
+    background: #fffbeb;
+    color: #92400e;
+  }
+
+  .mock-callout--ok {
+    background: #faf5f4;
+    color: #702d20;
+  }
+
+  .mock-dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.7rem;
+    padding: 1rem;
+  }
+
+  .mock-dash-card {
+    min-width: 0;
+    border: 1px solid var(--line);
+    border-radius: 5px;
+    background: var(--paper);
+    padding: 0.75rem;
+  }
+
+  .mock-dash-card--full {
+    grid-column: 1 / -1;
+  }
+
+  .mock-card-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-bottom: 0.55rem;
+  }
+
+  .mock-card-title {
+    color: var(--accent);
+    font-family: var(--font-mono);
+    font-size: 0.58rem;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+
+  .mock-edit-pill {
+    flex: 0 0 auto;
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    background: var(--white);
+    padding: 0.2rem 0.4rem;
+    color: var(--ink);
+    font: inherit;
+    font-size: 0.62rem;
+    cursor: pointer;
+  }
+
+  .mock-edit-pill:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .mock-card-text {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.78rem;
+  }
+
+  .mock-kv-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    margin: 0;
+    padding: 0;
+    font-size: 0.7rem;
+    list-style: none;
+  }
+
+  .mock-kv-list li {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+
+  .mock-kv-list li span {
+    color: var(--muted);
+  }
+
+  .mock-kv-list li strong {
+    text-align: right;
+  }
+
+  .mock-pills-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+
+  .mock-data-pill {
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    background: var(--white);
+    padding: 0.22rem 0.4rem;
+    font-size: 0.65rem;
+  }
+
+  @media (max-width: 640px) {
+    .ba-controls {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
+    .ba-toggle-group {
+      width: 100%;
+    }
+
+    .ba-btn {
+      flex: 1;
+      padding-inline: 0.35rem;
+      font-size: 0.65rem;
+    }
+
+    .mock-dashboard-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .mock-dash-card--full {
+      grid-column: auto;
+    }
+
+    .mock-legacy-row {
+      flex-direction: column;
+    }
+  }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>("[data-docket-comparison]").forEach((widget) => {
+    const buttons = Array.from(widget.querySelectorAll<HTMLButtonElement>('[role="tab"]'));
+    const panels = Array.from(widget.querySelectorAll<HTMLElement>("[data-panel]"));
+    const status = widget.querySelector<HTMLElement>("[data-status]");
+
+    const selectView = (view: string, focus = false) => {
+      buttons.forEach((button) => {
+        const selected = button.dataset.view === view;
+        button.setAttribute("aria-selected", String(selected));
+        button.tabIndex = selected ? 0 : -1;
+        button.classList.toggle("ba-btn--active", selected);
+        if (selected && focus) button.focus();
+      });
+
+      panels.forEach((panel) => {
+        panel.hidden = panel.dataset.panel !== view;
+      });
+
+      if (status) {
+        status.textContent = view === "before"
+          ? "Showing: legacy nested tabs (high friction)"
+          : "Showing: flattened dashboard + granular editing";
+      }
+    };
+
+    buttons.forEach((button, index) => {
+      button.addEventListener("click", () => selectView(button.dataset.view ?? "after"));
+      button.addEventListener("keydown", (event) => {
+        if (event.key === "ArrowRight" || event.key === "ArrowLeft") {
+          event.preventDefault();
+          const direction = event.key === "ArrowRight" ? 1 : -1;
+          const next = (index + direction + buttons.length) % buttons.length;
+          selectView(buttons[next].dataset.view ?? "after", true);
+        } else if (event.key === "Home" || event.key === "End") {
+          event.preventDefault();
+          const target = event.key === "Home" ? buttons[0] : buttons[buttons.length - 1];
+          selectView(target.dataset.view ?? "after", true);
+        }
+      });
+    });
+
+    selectView("after");
+  });
+</script>

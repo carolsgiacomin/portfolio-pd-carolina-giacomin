@@ -1,0 +1,316 @@
+---
+import SiteLayout from "../../layouts/SiteLayout.astro";
+---
+
+<SiteLayout
+  title="The AI Art Archive — Mapping Media Discourse | Carolina Giacomin"
+  description="A cross-media information design system exploring media discourse and controversy around generative AI."
+  sidebar={{
+    role: "Information & Communication Designer",
+    context: "Information design · Politecnico di Milano",
+    year: "2021–2024",
+    toc: [
+      { label: "Overview", href: "#archive-research-title" },
+      { label: "Research & Architecture", href: "#archive-timeline-title" },
+      { label: "Key Decisions", href: "#archive-network-title" },
+      { label: "Outcome", href: "#archive-takeaways-title" },
+    ],
+  }}
+>
+  <article class="archive-case">
+    <header class="archive-hero">
+      <a class="back-link" href="/#work">← Back to selected work</a>
+      <div class="archive-meta-top">
+        <span class="archive-eyebrow">Data visualization &amp; information design</span>
+        <span class="archive-eyebrow">Politecnico di Milano · MSc thesis</span>
+      </div>
+      <h1 class="case-title">The AI Art Archive: Mapping Media Discourse &amp; Controversy Around Generative AI</h1>
+      <p class="archive-subtitle">A cross-media information design system combining longitudinal timeline visualizations, actor-network graphs, and an editorial quote anthology to decode 100 international news articles (2021–2024).</p>
+
+      <dl class="archive-specs">
+        <div><dt>Role</dt><dd>Information &amp; Communication Designer</dd></div>
+        <div><dt>Institution</dt><dd>Politecnico di Milano · DensityDesign Lab</dd></div>
+        <div><dt>Dataset</dt><dd>100 international news articles · 2021–2024</dd></div>
+        <div><dt>Deliverables</dt><dd>2 large-format posters + editorial book</dd></div>
+      </dl>
+    </header>
+
+    <figure class="archive-figure archive-figure--hero">
+      <div class="archive-image-frame">
+        <img
+          src="/images/ai-archive-1.png"
+          alt="The AI Art Archive cross-media system showing the timeline poster, network graph poster, and blue quote book"
+          fetchpriority="high"
+          decoding="async"
+        />
+      </div>
+      <figcaption>
+        <span class="archive-eyebrow">System overview / Cross-media information architecture</span>
+        <p>Three complementary artifacts guide readers from macro-historical trends to direct, verbatim quotes.</p>
+      </figcaption>
+    </figure>
+
+    <section class="archive-section" aria-labelledby="archive-research-title">
+      <div class="archive-section-heading">
+        <span class="archive-eyebrow">Research &amp; data curation</span>
+        <h2 id="archive-research-title">Turning unstructured media noise into a navigable knowledge archive</h2>
+      </div>
+      <div class="archive-section-body">
+        <p>Between 2021 and 2024, the rapid rise of text-to-image models sparked public debate across art, law, and technology, spanning copyright lawsuits, artistic authenticity, labor displacement, and institutional recognition. Yet public perception remained fragmented across isolated headlines.</p>
+        <p>To make this evolving controversy legible, I curated a corpus of <strong>100 international news articles</strong> and designed a structured taxonomy coding each article by publication date, thematic focus, key milestones, referenced entities—including artists, AI labs, museums, and courts—and direct stakeholder quotes.</p>
+        <ul class="archive-list">
+          <li><strong>Five thematic lenses.</strong> AI in Art Creation &amp; Innovation; Impact on Artists &amp; the Art Industry; Art’s Authenticity; Ethical &amp; Legal Issues; and Historical &amp; Cultural Perspectives.</li>
+          <li><strong>Entity extraction &amp; clustering.</strong> Relationships across people, organizations, AI products, and artworks reveal recurring alliances and points of friction.</li>
+          <li><strong>Cross-media indexing.</strong> Unique article IDs (01–100) connect data points on the posters to verbatim excerpts in the printed book.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="archive-section" aria-labelledby="archive-timeline-title">
+      <div class="archive-section-heading">
+        <span class="archive-eyebrow">Longitudinal timeline visualization</span>
+        <h2 id="archive-timeline-title">Tracking how the debate shifted from curiosity to legal conflict</h2>
+      </div>
+      <div class="archive-section-body">
+        <p>The first large-format poster maps all 100 articles chronologically from January 2021 to April 2024. By encoding article topics, technology releases such as DALL·E, Midjourney, and Stable Diffusion, and legal milestones along a single vertical axis, the visualization reveals a shift from early experimentation toward copyright litigation and regulatory intervention.</p>
+        <figure class="archive-figure">
+          <div class="archive-image-frame">
+            <img
+              src="/images/ai-archive-3.png"
+              alt="The AI and Art Debate in the News Over Time longitudinal timeline poster"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <figcaption>
+            <span class="archive-eyebrow">Timeline artifact · The AI and Art Debate in the News Over Time</span>
+            <p>Chronological distribution of 100 articles highlighting technology releases, institutional reactions, and shifts in headline framing.</p>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="archive-section" aria-labelledby="archive-network-title">
+      <div class="archive-section-heading">
+        <span class="archive-eyebrow">Actor-network &amp; cluster mapping</span>
+        <h2 id="archive-network-title">Revealing who shapes the narrative—and where ecosystems collide</h2>
+      </div>
+      <div class="archive-section-body">
+        <p>The second poster translates entity co-occurrences into a spatial network graph, “Who is Participating in the AI and Art Debate?” Central hubs show the prominence of major generative labs alongside classical art figures frequently invoked in debates about training data and style mimicry.</p>
+        <figure class="archive-figure">
+          <div class="archive-image-frame">
+            <img
+              src="/images/ai-archive-2.png"
+              alt="Who is Participating in the AI and Art Debate network graph with zoomed cluster details"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <figcaption>
+            <span class="archive-eyebrow">Network artifact · Actor-network graph &amp; thematic clusters</span>
+            <p>Artists, AI companies, legal disputes, and art-historical references organized into spatial clusters with annotated micro-narratives.</p>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="archive-section" aria-labelledby="archive-editorial-title">
+      <div class="archive-section-heading">
+        <span class="archive-eyebrow">Editorial artifact &amp; qualitative depth</span>
+        <h2 id="archive-editorial-title">Balancing quantitative patterns with human voices</h2>
+      </div>
+      <div class="archive-section-body">
+        <p>Data visualizations reveal macro patterns, but can flatten the emotional and ethical nuance of individual creators. To preserve human perspectives, I designed “AI &amp; Art Through Quotes in the News Media,” a tactile editorial book organized by debate area. Readers can use article IDs from the posters to find verbatim statements from artists, technologists, and legal scholars.</p>
+        <figure class="archive-figure">
+          <div class="archive-image-frame">
+            <img
+              src="/images/ai-archive-4.png"
+              alt="Quotes in the news media book cover surrounded by editorial spreads on copyright and AI collaboration"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <figcaption>
+            <span class="archive-eyebrow">Editorial artifact · Quotes in the News Media</span>
+            <p>Thematic spreads bring together opposing viewpoints on copyright, job displacement, and human–AI creative collaboration.</p>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="archive-section" aria-labelledby="archive-takeaways-title">
+      <div class="archive-section-heading">
+        <span class="archive-eyebrow">Reflection &amp; design takeaways</span>
+        <h2 id="archive-takeaways-title">What large-scale information architecture brings to digital products</h2>
+      </div>
+      <div class="archive-section-body">
+        <p>Designing <em>The AI Art Archive</em> reinforced a principle I apply to complex B2B software: clarity comes from progressive disclosure. Whether people are exploring 100 news articles or managing thousands of enterprise workflows, pairing a high-level structural overview with a direct path to granular records can reduce cognitive overload without sacrificing depth.</p>
+      </div>
+    </section>
+  </article>
+
+  <style>
+    .archive-case {
+      padding-bottom: 2rem;
+    }
+
+    .archive-hero {
+      padding-top: clamp(4rem, 8vw, 7rem);
+      padding-bottom: clamp(2.5rem, 5vw, 4rem);
+    }
+
+    .archive-meta-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.75rem 1.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+
+    .archive-eyebrow {
+      color: var(--accent);
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      line-height: 1.6;
+      text-transform: uppercase;
+    }
+
+    .archive-hero .case-title {
+      max-width: 17ch;
+      margin-top: 0;
+    }
+
+    .archive-subtitle {
+      max-width: 49rem;
+      margin: 0 0 2.5rem;
+      color: var(--muted);
+      font-size: clamp(1rem, 1.5vw, 1.2rem);
+    }
+
+    .archive-specs {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+      margin: 0;
+      border-block: 1px solid var(--line);
+      padding-block: 1.1rem;
+    }
+
+    .archive-specs dt {
+      margin-bottom: 0.4rem;
+      color: var(--muted);
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .archive-specs dd {
+      margin: 0;
+      font-size: 0.82rem;
+      line-height: 1.55;
+    }
+
+    .archive-figure {
+      overflow: hidden;
+      margin: 1.75rem 0 0;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--white);
+    }
+
+    .archive-figure--hero {
+      margin-top: 0;
+      margin-bottom: clamp(3rem, 7vw, 6rem);
+    }
+
+    .archive-image-frame {
+      display: grid;
+      width: 100%;
+      overflow: hidden;
+      border-bottom: 1px solid var(--line);
+      background: var(--white);
+      padding: clamp(0.5rem, 1.5vw, 1rem);
+      place-items: center;
+    }
+
+    .archive-image-frame img {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 82vh;
+      object-fit: contain;
+      object-position: center;
+    }
+
+    .archive-figure figcaption {
+      padding: 0.9rem 1rem;
+    }
+
+    .archive-figure figcaption p {
+      margin: 0.3rem 0 0;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    .archive-section {
+      display: grid;
+      grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
+      gap: clamp(2rem, 8vw, 8rem);
+      border-top: 1px solid var(--line);
+      padding-block: clamp(3rem, 7vw, 6rem);
+    }
+
+    .archive-section-heading h2 {
+      margin: 0.7rem 0 0;
+      font-size: clamp(1.9rem, 3.6vw, 3.25rem);
+      font-weight: 500;
+      letter-spacing: -0.035em;
+      line-height: 1.08;
+    }
+
+    .archive-section-body {
+      min-width: 0;
+    }
+
+    .archive-section-body > p,
+    .archive-list {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .archive-section-body > p:first-child {
+      margin-top: 0;
+    }
+
+    .archive-list {
+      display: grid;
+      gap: 0.8rem;
+      margin: 1.25rem 0 0;
+      padding-left: 1.2rem;
+      line-height: 1.65;
+    }
+
+    .archive-list strong {
+      color: var(--ink);
+    }
+
+    @media (max-width: 760px) {
+      .archive-specs {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .archive-section {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .archive-meta-top {
+        flex-direction: column;
+      }
+    }
+  </style>
+</SiteLayout>

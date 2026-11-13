@@ -1,0 +1,115 @@
+<figure class="blueprint-viewer">
+  <figcaption class="blueprint-header">
+    <div>
+      <span class="blueprint-eyebrow">End-to-end service blueprint</span>
+      <h3>Mapping 30+ functional requirements across 6 macro-phases</h3>
+    </div>
+  </figcaption>
+
+  <div class="blueprint-scroll-frame" role="region" aria-label="Scrollable service blueprint" tabindex="0">
+    <img
+      src="/images/service-blueprint-macro.webp"
+      alt="End-to-end service blueprint mapping financial institution and servicer workflows across six phases"
+      class="blueprint-img"
+      loading="lazy"
+      decoding="async"
+    />
+  </div>
+
+  <div class="blueprint-footer">
+    <span class="blueprint-note">← Scroll horizontally to explore the flow →</span>
+    <span class="blueprint-note">Text anonymized at macro scale for confidentiality</span>
+  </div>
+</figure>
+
+<style>
+  .blueprint-viewer {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    overflow: hidden;
+    margin: 1.5rem 0 0;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    background: var(--white);
+  }
+
+  .blueprint-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 1rem;
+    flex-wrap: wrap;
+    border-bottom: 1px solid var(--line);
+    background: var(--paper);
+    padding: 1rem 1.1rem;
+  }
+
+  .blueprint-eyebrow,
+  .blueprint-note {
+    color: var(--muted);
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+  }
+
+  .blueprint-eyebrow {
+    color: var(--accent);
+  }
+
+  .blueprint-header h3 {
+    margin: 0.3rem 0 0;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+  }
+
+  .blueprint-scroll-frame {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    background: var(--white);
+    padding: 1rem;
+    cursor: grab;
+    scrollbar-color: var(--line) var(--surface);
+  }
+
+  .blueprint-scroll-frame:active {
+    cursor: grabbing;
+  }
+
+  .blueprint-img {
+    display: block;
+    width: auto;
+    height: 320px;
+    max-width: none;
+  }
+
+  .blueprint-footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem 1rem;
+    flex-wrap: wrap;
+    border-top: 1px solid var(--line);
+    background: var(--surface);
+    padding: 0.7rem 1rem;
+  }
+
+  .blueprint-scroll-frame:focus-visible {
+    outline-offset: -3px;
+  }
+
+  @media (max-width: 600px) {
+    .blueprint-img {
+      height: 240px;
+    }
+
+    .blueprint-note {
+      font-size: 0.56rem;
+    }
+  }
+</style>

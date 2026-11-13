@@ -1,0 +1,56 @@
+---
+import CaseStudy from "../../components/CaseStudy.astro";
+---
+
+<CaseStudy
+  title="Simplifying Legal Document Operations"
+  accent="Redesigning Docket’s Core Knowledge Base"
+  subtitle="Restructuring a high-density CRUD internal platform to eliminate nested navigation, accelerate document issuance from 5,000 to 8,000+ monthly deliveries, and increase database ownership."
+  role="UX/UI Product Designer"
+  timeline="2019 — 2020"
+  year="2019–2020"
+  team="Docket Atlas · Internal B2B CRUD"
+  impact="5,000 → 8,000+ monthly documents · Flatter IA"
+  metadata={[
+    { label: "Role", value: "UX/UI Product Designer" },
+    { label: "Product", value: "Docket Atlas · Internal B2B CRUD" },
+    { label: "Methods", value: "Shadowing · Heuristic evaluation · Card sorting" },
+    { label: "Scale & impact", value: "5,000 → 8,000+ monthly documents · Flatter IA" },
+  ]}
+  visual="legal"
+  cardSortingMatrix={true}
+  docketComparison={true}
+  sections={[
+    {
+      heading: "Context & operational bottleneck",
+      paragraphs: [
+        "When critical operational rules are buried behind hidden tabs, everyday document requests take more effort than they should. Docket is a B2B SaaS platform that automates the issuance and delivery of complex legal and registry documents across Brazil. Atlas is the company's core operational knowledge base: a CRUD (Create, Read, Update, Delete) system used to look up issuance rules, required fields, jurisdiction types, and delivery methods for thousands of document types.",
+      ],
+      items: [
+        { title: "Buried hierarchy", description: "Information operators needed at a glance was hidden behind nested tabs and unrepresentative icons." },
+        { title: "High interaction cost", description: "Operators clicked through several layers just to verify basic issuance requirements." },
+        { title: "Outdated records & shadow workflows", description: "When finding and editing fields became cumbersome, operators relied on external spreadsheets, leaving database records stale." },
+      ],
+    },
+    {
+      heading: "Discovery & information architecture",
+      paragraphs: [
+        "Rather than guessing at a new layout, I shadowed operations specialists during live document requests, evaluated the existing screens against usability heuristics, and facilitated individual card-sorting sessions with five operators.",
+        "The goal was to establish an evidence-informed hierarchy of what operators needed first when processing a document. The synthesis below ranks the seven data attributes by the operators' consensus priority.",
+      ],
+    },
+    {
+      heading: "Architectural & UI solution",
+      paragraphs: [
+        "Using the card-sorting consensus, I replaced the deeply nested tab structure with a scannable dashboard. The redesign surfaces high-priority information together and supports editing individual sections instead of requiring a global edit of the entire record.",
+      ],
+    },
+    {
+      heading: "Outcomes & retrospective",
+      paragraphs: [
+        "The redesigned information architecture supported Docket's operational growth from 5,000 to more than 8,000 documents delivered per month, while increasing internal ownership of database maintenance through granular section editing.",
+        "Looking back at this early-career project with a stronger data-driven product lens, I would pair qualitative usability validation with pre- and post-launch behavioral instrumentation. Median lookup time per document, tab-abandonment rates, and edit frequency per operator would help quantify efficiency gains empirically.",
+      ],
+    },
+  ]}
+/>
