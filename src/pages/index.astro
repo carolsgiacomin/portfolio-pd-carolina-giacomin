@@ -5,15 +5,22 @@ import ProjectCard from "../components/ProjectCard.astro";
 
 <SiteLayout>
   <section class="hero" aria-labelledby="hero-title">
-    <div class="hero-meta">
-      <span>Product Designer · Milan / Remote</span>
-      <span class="mono">2026</span>
-    </div>
-    <h1 id="hero-title">Complex workflows,<br /><em>made intuitive.</em></h1>
-    <p class="hero-copy">Senior Product Designer and Information Architect shaping clear, resilient products from complex rules, workflows, and data. Currently designing fintech products in Milan.</p>
-    <div class="hero-bottom">
-      <span class="hero-focus">Product systems · Information architecture · Data visualization</span>
-      <a class="text-link" href="#work">Explore selected work <span aria-hidden="true">↓</span></a>
+    <div class="hero-grid">
+      <div class="hero-content">
+        <div class="hero-meta">
+          <span>Product Designer · Milan / Remote</span>
+        </div>
+        <h1 id="hero-title">Complex workflows,<br /><em>made intuitive.</em></h1>
+        <p class="hero-copy">I design software for complex, rule-heavy work in finance, education, and legal.</p>
+        <div class="hero-actions">
+          <a class="text-link" href="#work">View projects <span aria-hidden="true">↓</span></a>
+        </div>
+      </div>
+      <figure class="hero-visual" aria-hidden="true">
+        <img src="/images/Cover-Fintech.png" alt="" fetchpriority="high" />
+        <span class="hero-callout hero-callout--one">Structured workflows</span>
+        <span class="hero-callout hero-callout--two">Clear decisions</span>
+      </figure>
     </div>
   </section>
 
@@ -23,10 +30,10 @@ import ProjectCard from "../components/ProjectCard.astro";
       <p class="eyebrow">Case studies · 2021–2026</p>
     </div>
     <div class="project-grid">
-      <ProjectCard title="Confidential — Fintech Products & Credit Workflows" context="Fintech & Credit Systems" year="2026" outcome="Reframed 30 requirements into a role-based credit workflow prototype in one week." href="/work/fintech-products/" visual="fintech" badge="NDA protected" />
-      <ProjectCard title="Docket Atlas — Legal Operations Knowledge Base" context="Legal Operations" year="2019–2020" outcome="Made high-priority issuance rules easier to find and maintain." href="/work/docket-atlas/" visual="legal" />
-      <ProjectCard title="Guido — Inclusive Healthcare Access" context="Healthcare & Inclusive Design" year="MSc project" outcome="Connected multilingual patients and clinicians across the care journey." href="/work/guido/" visual="health" />
-      <ProjectCard title="The AI Art Archive — MSc Thesis" context="Information Design & Research" year="2021–2024" outcome="Made a fragmented media debate navigable across data and editorial formats." href="/work/ai-art-archive/" visual="archive" />
+      <ProjectCard title="Fintech · Credit workflows" context="Fintech" year="2026" outcome="Reframed 30 requirements into a role-based credit workflow prototype in one week." href="/work/fintech-products/" visual="fintech" badge="NDA protected" />
+      <ProjectCard title="Legal operations · Knowledge base" context="Legal operations" year="2019–2020" outcome="Made high-priority issuance rules easier to find and maintain." href="/work/docket-atlas/" visual="legal" />
+      <ProjectCard title="Healthcare · Multilingual access" context="Healthcare" year="MSc project" outcome="Connected multilingual patients and clinicians across the care journey." href="/work/guido/" visual="health" />
+      <ProjectCard title="AI Art Archive · MSc thesis" context="Information design" year="2021–2024" outcome="Made a fragmented media debate navigable across data and editorial formats." href="/work/ai-art-archive/" visual="archive" />
     </div>
   </section>
 
@@ -38,14 +45,17 @@ import ProjectCard from "../components/ProjectCard.astro";
       <article class="practice-item">
         <h3>Product Systems &amp; Workflows</h3>
         <p>I turn dense rules, fragmented tools, and high-stakes processes into clear products people can use with confidence. I stay close to real constraints, partnering with product and engineering from early scoping through delivery.</p>
+        <p class="practice-example">I map dense rules and fragmented tools into processes people can trust.</p>
       </article>
       <article class="practice-item">
         <h3>Information Architecture</h3>
         <p>I make complex products easier to understand by clarifying roles, navigation, and the relationships between tasks. The goal is the right information, in the right context, so people can move through their work without losing the thread.</p>
+        <p class="practice-example">I clarify roles, navigation, and task relationships so people find the right information in the right context.</p>
       </article>
       <article class="practice-item">
         <h3>Research &amp; Data Visualization</h3>
         <p>I combine user research and data thinking to find useful patterns, test assumptions, and make dense information easier to scan. My background in data visualization helps turn evidence into interfaces that support better decisions.</p>
+        <p class="practice-example">I combine research and data thinking to surface patterns that make dense information easy to scan.</p>
       </article>
     </div>
   </section>
@@ -60,22 +70,27 @@ import ProjectCard from "../components/ProjectCard.astro";
       <div class="about-copy">
         <h2 class="about-title">From São Paulo to Milan: bridging product logic and visual clarity.</h2>
         <p>My path into product design started in São Paulo, studying Industrial Design at the University of São Paulo (FAU-USP) and building early-stage B2B SaaS products and design systems. Seeking a deeper lens on how people make sense of complex information, I moved to Milan to complete my MSc in Communication Design at Politecnico di Milano—working alongside data visualization pioneers at Accurat before joining a fintech team to design complex financial workflows.</p>
-        <p>Across different countries and domains, one thread has stayed constant: I love turning messy, intimidating systems into tools that feel calm and human. Outside of product work, you can usually find me sketching, visiting design exhibitions around Milan, or testing new AI tools to build small side projects.</p>
+        <p>I keep an illustration practice that helps me explore ideas through shape and color. I also run Jacomin, my side brand, and work on design systems that help teams build consistent products.</p>
         <div class="about-details">
           <div class="about-detail">
             <span>Education</span>
-            <p>MSc Politecnico di Milano · BDes FAU-USP</p>
+            <p>Master of Science (MSc) in Communication Design · Politecnico di Milano<br />Bachelor of Design · University of São Paulo (FAU-USP)</p>
           </div>
           <div class="about-detail">
             <span>Languages</span>
-            <p>Portuguese (Native) · English (C2) · Italian (Fluent)</p>
+            <p>Italian · English · Portuguese</p>
           </div>
           <div class="about-detail">
             <span>Currently</span>
-            <p>Product Designer · Fintech (Milan)</p>
+            <p>Product Designer · Fintech</p>
           </div>
         </div>
       </div>
     </div>
+  </section>
+
+  <section class="contact-cta" aria-labelledby="contact-heading">
+    <h2 id="contact-heading">Let's talk about complex systems.</h2>
+    <a class="button button-primary" href="mailto:carolsgiacomin@gmail.com">Get in touch</a>
   </section>
 </SiteLayout>
