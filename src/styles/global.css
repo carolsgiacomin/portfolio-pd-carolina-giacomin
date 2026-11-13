@@ -492,19 +492,6 @@ body:has(.mobile-nav.is-open) .site-header {
   transition: transform 350ms ease;
 }
 
-.fintech-visual .project-cover,
-.fintech-card .project-cover {
-  width: 100%;
-  max-width: none;
-  height: 100%;
-  aspect-ratio: auto;
-  border: 0;
-  border-radius: 0;
-  box-shadow: none;
-  object-fit: cover;
-  transform: none;
-}
-
 .fintech-visual {
   background: #f2efeb;
 }
