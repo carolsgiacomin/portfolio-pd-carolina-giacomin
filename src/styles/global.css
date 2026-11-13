@@ -105,7 +105,15 @@ input:focus-visible {
   align-items: center;
   justify-content: space-between;
   min-height: 5.6rem;
-  border-bottom: 1px solid var(--line);
+  background: transparent;
+  border-bottom: 0;
+  color: #fff;
+  mix-blend-mode: difference;
+}
+
+body:has(.mobile-nav.is-open) .site-header {
+  color: var(--ink);
+  mix-blend-mode: normal;
 }
 
 .wordmark {
@@ -133,13 +141,21 @@ input:focus-visible {
   color: var(--accent);
 }
 
+.site-header .desktop-nav a:hover {
+  color: inherit;
+  opacity: 0.72;
+}
+
 .menu-toggle,
 .mobile-nav {
   display: none;
 }
 
 .hero {
-  padding-top: clamp(4.5rem, 9.5vw, 9rem);
+  margin-inline: calc(var(--page-gutter) * -1);
+  background: var(--ink);
+  color: var(--paper);
+  padding: clamp(4.5rem, 9.5vw, 9rem) var(--page-gutter) 0;
 }
 
 .hero-meta,
@@ -177,6 +193,16 @@ input:focus-visible {
   letter-spacing: inherit;
 }
 
+.hero h1 em {
+  color: #E88965;
+}
+
+.hero .hero-meta,
+.hero .hero-copy,
+.hero .hero-focus {
+  color: #D4D0C8;
+}
+
 .hero-copy {
   max-width: 47rem;
   margin: 0;
@@ -187,12 +213,11 @@ input:focus-visible {
 
 .hero-bottom {
   margin-top: clamp(3.5rem, 7vw, 7rem);
-  border-top: 1px solid var(--line);
   padding-block: 1.2rem;
 }
 
 .hero-bottom .mono {
-  color: var(--muted);
+  color: #D4D0C8;
 }
 
 .text-link {
@@ -201,14 +226,26 @@ input:focus-visible {
   transition: color 180ms ease;
 }
 
+.hero-bottom .text-link:hover {
+  color: #E88965;
+}
+
 .section {
   padding-block: clamp(5rem, 10vw, 10rem);
+}
+
+.section--work {
+  padding-top: clamp(3rem, 5vw, 5rem);
 }
 
 .section-heading {
   align-items: flex-end;
   border-bottom: 1px solid var(--line);
   padding-bottom: 1.15rem;
+}
+
+.section--work .section-heading {
+  border-bottom: 0;
 }
 
 .section-heading h2 {
@@ -1053,7 +1090,8 @@ input:focus-visible {
     display: grid;
     width: 2.8rem;
     height: 2.8rem;
-    border: 1px solid var(--line);
+    color: inherit;
+    border: 1px solid currentColor;
     border-radius: 50%;
     background: transparent;
     place-items: center;
@@ -1066,7 +1104,7 @@ input:focus-visible {
     display: block;
     width: 1rem;
     height: 1px;
-    background: var(--ink);
+    background: currentColor;
     transition: transform 180ms ease;
   }
 
@@ -1262,8 +1300,8 @@ input:focus-visible {
     align-items: center;
     gap: 0 2rem;
     min-height: 5.5rem;
-    border-bottom: 1px solid var(--line);
-    background: var(--paper);
+    border-bottom: 0;
+    background: transparent;
     padding-block: 1rem;
   }
 
@@ -1357,7 +1395,6 @@ input:focus-visible {
 }
 
 .hero-focus {
-  color: var(--muted);
   font-size: 0.85rem;
 }
 
@@ -1372,6 +1409,15 @@ input:focus-visible {
   border-bottom: 0;
   padding-top: 1rem;
   padding-bottom: 0;
+}
+
+.section--work {
+  padding-top: clamp(3rem, 5vw, 5rem);
+}
+
+.section--work .section-heading {
+  border-top: 0;
+  padding-top: 0;
 }
 
 .section-heading h2,
@@ -1602,7 +1648,7 @@ input:focus-visible {
     align-items: center;
     min-height: 4.6rem;
     border-right: 0;
-    background: var(--paper);
+    background: transparent;
     padding: 0;
   }
 
