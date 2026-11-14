@@ -95,29 +95,29 @@
 
 <style>
   .docket-comparison {
-    margin-top: 1.5rem;
+    margin-top: 24px;
     border: 1px solid var(--line);
     border-radius: 8px;
     background: var(--surface);
-    padding: clamp(1rem, 3vw, 1.5rem);
+    padding: clamp(16px, round(nearest, 3vw, 8px), 24px);
   }
 
   .comparison-header {
-    margin-bottom: 1.25rem;
+    margin-bottom: 24px;
   }
 
   .comparison-eyebrow {
-    margin: 0 0 0.45rem;
+    margin: 0 0 8px;
     color: var(--accent);
     font-family: var(--font-mono);
-    font-size: 0.65rem;
+    font-size: 10px;
     letter-spacing: 0.08em;
     text-transform: uppercase;
   }
 
   .comparison-header h3 {
-    margin: 0 0 0.4rem;
-    font-size: clamp(1.2rem, 2.3vw, 1.65rem);
+    margin: 0 0 8px;
+    font-size: clamp(19px, round(nearest, 2.3vw, 1px), 26px);
     font-weight: 500;
     letter-spacing: -0.025em;
   }
@@ -125,34 +125,34 @@
   .comparison-header > p:last-child {
     margin: 0;
     color: var(--muted);
-    font-size: 0.88rem;
+    font-size: 14px;
   }
 
   .ba-controls {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 0.8rem;
+    gap: 16px;
     flex-wrap: wrap;
-    margin-bottom: 1rem;
+    margin-bottom: 16px;
   }
 
   .ba-toggle-group {
     display: inline-flex;
-    gap: 0.2rem;
+    gap: 8px;
     border-radius: 6px;
     background: #e5e2dc;
-    padding: 0.22rem;
+    padding: 8px;
   }
 
   .ba-btn {
     border: 0;
     border-radius: 4px;
     background: transparent;
-    padding: 0.52rem 0.7rem;
+    padding: 8px;
     color: var(--muted);
     font: inherit;
-    font-size: 0.75rem;
+    font-size: 12px;
     cursor: pointer;
   }
 
@@ -165,7 +165,7 @@
   .comparison-status {
     color: var(--muted);
     font-family: var(--font-mono);
-    font-size: 0.58rem;
+    font-size: 9px;
     letter-spacing: 0.04em;
     text-transform: uppercase;
   }
@@ -189,19 +189,19 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 0.6rem;
+    gap: 8px;
     flex-wrap: wrap;
     border-bottom: 1px solid var(--line);
     background: var(--paper);
-    padding: 0.75rem 1rem;
-    font-size: 0.76rem;
+    padding: 16px;
+    font-size: 12px;
   }
 
   .mock-badge {
     border-radius: 3px;
-    padding: 0.2rem 0.45rem;
+    padding: 8px;
     font-family: var(--font-mono);
-    font-size: 0.57rem;
+    font-size: 9px;
     text-transform: uppercase;
   }
 
@@ -225,9 +225,9 @@
   .mock-ltab {
     flex: 0 0 auto;
     border-right: 1px solid var(--line);
-    padding: 0.6rem 0.75rem;
+    padding: 8px 16px;
     color: #9ca3af;
-    font-size: 0.68rem;
+    font-size: 11px;
   }
 
   .mock-ltab--active {
@@ -238,45 +238,45 @@
   }
 
   .mock-legacy-body {
-    padding: 1rem;
+    padding: 16px;
   }
 
   .mock-legacy-row {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    gap: 1rem;
-    margin-bottom: 1rem;
+    gap: 16px;
+    margin-bottom: 16px;
   }
 
   .mock-field-label {
-    margin: 0 0 0.15rem;
+    margin: 0 0 8px;
     color: var(--muted);
-    font-size: 0.68rem;
+    font-size: 11px;
   }
 
   .mock-field-label--spaced {
-    margin-top: 0.7rem;
+    margin-top: 8px;
   }
 
   .mock-field-val {
     margin: 0;
-    font-size: 0.8rem;
+    font-size: 13px;
   }
 
   .mock-edit-btn {
     border: 1px solid var(--line);
     border-radius: 4px;
     background: var(--surface);
-    padding: 0.35rem 0.6rem;
+    padding: 8px;
     color: var(--muted);
-    font-size: 0.68rem;
+    font-size: 11px;
   }
 
   .mock-callout {
     border-top: 1px solid var(--line);
-    padding: 0.75rem 1rem;
-    font-size: 0.75rem;
+    padding: 16px;
+    font-size: 12px;
     line-height: 1.5;
   }
 
@@ -293,8 +293,8 @@
   .mock-dashboard-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.7rem;
-    padding: 1rem;
+    gap: 8px;
+    padding: 16px;
   }
 
   .mock-dash-card {
@@ -302,7 +302,7 @@
     border: 1px solid var(--line);
     border-radius: 5px;
     background: var(--paper);
-    padding: 0.75rem;
+    padding: 16px;
   }
 
   .mock-dash-card--full {
@@ -313,14 +313,14 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    gap: 0.5rem;
-    margin-bottom: 0.55rem;
+    gap: 8px;
+    margin-bottom: 8px;
   }
 
   .mock-card-title {
     color: var(--accent);
     font-family: var(--font-mono);
-    font-size: 0.58rem;
+    font-size: 9px;
     font-weight: 500;
     text-transform: uppercase;
   }
@@ -330,10 +330,10 @@
     border: 1px solid var(--line);
     border-radius: 3px;
     background: var(--white);
-    padding: 0.2rem 0.4rem;
+    padding: 8px;
     color: var(--ink);
     font: inherit;
-    font-size: 0.62rem;
+    font-size: 10px;
     cursor: pointer;
   }
 
@@ -345,23 +345,23 @@
   .mock-card-text {
     margin: 0;
     color: var(--muted);
-    font-size: 0.78rem;
+    font-size: 12px;
   }
 
   .mock-kv-list {
     display: flex;
     flex-direction: column;
-    gap: 0.35rem;
+    gap: 8px;
     margin: 0;
     padding: 0;
-    font-size: 0.7rem;
+    font-size: 11px;
     list-style: none;
   }
 
   .mock-kv-list li {
     display: flex;
     justify-content: space-between;
-    gap: 0.5rem;
+    gap: 8px;
   }
 
   .mock-kv-list li span {
@@ -375,15 +375,15 @@
   .mock-pills-wrap {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.35rem;
+    gap: 8px;
   }
 
   .mock-data-pill {
     border: 1px solid var(--line);
     border-radius: 3px;
     background: var(--white);
-    padding: 0.22rem 0.4rem;
-    font-size: 0.65rem;
+    padding: 8px;
+    font-size: 10px;
   }
 
   @media (max-width: 640px) {
@@ -398,8 +398,8 @@
 
     .ba-btn {
       flex: 1;
-      padding-inline: 0.35rem;
-      font-size: 0.65rem;
+      padding-inline: 8px;
+      font-size: 10px;
     }
 
     .mock-dashboard-grid {

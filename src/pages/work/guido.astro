@@ -153,26 +153,26 @@ import SiteLayout from "../../layouts/SiteLayout.astro";
 
   <style>
     .guido-case {
-      padding-bottom: 2rem;
+      padding-bottom: 32px;
     }
 
     .guido-hero {
-      padding-top: clamp(4rem, 8vw, 7rem);
-      padding-bottom: clamp(2.5rem, 5vw, 4rem);
+      padding-top: clamp(64px, round(nearest, 8vw, 8px), 112px);
+      padding-bottom: clamp(40px, round(nearest, 5vw, 8px), 64px);
     }
 
     .guido-meta-top {
       display: flex;
       justify-content: space-between;
-      gap: 0.75rem 1.5rem;
+      gap: 16px 24px;
       flex-wrap: wrap;
-      margin-bottom: 1.5rem;
+      margin-bottom: 24px;
     }
 
     .guido-eyebrow {
       color: var(--accent);
       font-family: var(--font-mono);
-      font-size: 0.65rem;
+      font-size: 10px;
       letter-spacing: 0.08em;
       line-height: 1.6;
       text-transform: uppercase;
@@ -185,46 +185,46 @@ import SiteLayout from "../../layouts/SiteLayout.astro";
 
     .guido-subtitle {
       max-width: 48rem;
-      margin: 0 0 2.5rem;
+      margin: 0 0 40px;
       color: var(--muted);
-      font-size: clamp(1rem, 1.5vw, 1.2rem);
+      font-size: clamp(16px, round(nearest, 1.5vw, 1px), 19px);
     }
 
     .guido-specs {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 1rem;
+      gap: 16px;
       margin: 0;
       border-block: 1px solid var(--line);
-      padding-block: 1.1rem;
+      padding-block: 16px;
     }
 
     .guido-specs dt {
-      margin-bottom: 0.4rem;
+      margin-bottom: 8px;
       color: var(--muted);
       font-family: var(--font-mono);
-      font-size: 0.62rem;
+      font-size: 10px;
       letter-spacing: 0.08em;
       text-transform: uppercase;
     }
 
     .guido-specs dd {
       margin: 0;
-      font-size: 0.82rem;
+      font-size: 13px;
       line-height: 1.55;
     }
 
     .guido-section {
       display: grid;
       grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
-      gap: clamp(2rem, 8vw, 8rem);
+      gap: clamp(32px, round(nearest, 8vw, 8px), 128px);
       border-top: 1px solid var(--line);
-      padding-block: clamp(3rem, 7vw, 6rem);
+      padding-block: clamp(48px, round(nearest, 7vw, 8px), 96px);
     }
 
     .guido-section-heading h2 {
-      margin: 0.7rem 0 0;
-      font-size: clamp(1.9rem, 3.6vw, 3.25rem);
+      margin: 8px 0 0;
+      font-size: clamp(30px, round(nearest, 3.6vw, 1px), 52px);
       font-weight: 500;
       letter-spacing: -0.035em;
       line-height: 1.08;
@@ -237,7 +237,7 @@ import SiteLayout from "../../layouts/SiteLayout.astro";
     .guido-section-body > p,
     .guido-list {
       color: var(--muted);
-      font-size: 0.92rem;
+      font-size: 15px;
     }
 
     .guido-section-body > p:first-child {
@@ -246,9 +246,9 @@ import SiteLayout from "../../layouts/SiteLayout.astro";
 
     .guido-list {
       display: grid;
-      gap: 0.8rem;
-      margin: 1.25rem 0 0;
-      padding-left: 1.2rem;
+      gap: 16px;
+      margin: 24px 0 0;
+      padding-left: 16px;
       line-height: 1.65;
     }
 
@@ -258,7 +258,7 @@ import SiteLayout from "../../layouts/SiteLayout.astro";
 
     .guido-table-wrap {
       overflow-x: auto;
-      margin-top: 1.75rem;
+      margin-top: 32px;
       border: 1px solid var(--line);
       border-radius: 6px;
       background: var(--white);
@@ -270,7 +270,7 @@ import SiteLayout from "../../layouts/SiteLayout.astro";
       min-width: 40rem;
       border-collapse: collapse;
       text-align: left;
-      font-size: 0.76rem;
+      font-size: 12px;
       line-height: 1.55;
     }
 
@@ -278,11 +278,11 @@ import SiteLayout from "../../layouts/SiteLayout.astro";
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 0.5rem 1rem;
+      gap: 8px 16px;
       flex-wrap: wrap;
       border-bottom: 1px solid var(--line);
       background: var(--surface);
-      padding: 0.75rem 0.9rem;
+      padding: 16px;
       color: var(--muted);
       text-align: left;
     }
@@ -290,7 +290,7 @@ import SiteLayout from "../../layouts/SiteLayout.astro";
     .guido-table th,
     .guido-table td {
       border-bottom: 1px solid var(--surface);
-      padding: 0.7rem 0.8rem;
+      padding: 8px 16px;
       vertical-align: top;
     }
 
@@ -298,7 +298,7 @@ import SiteLayout from "../../layouts/SiteLayout.astro";
       background: #fcfbf9;
       color: var(--muted);
       font-family: var(--font-mono);
-      font-size: 0.58rem;
+      font-size: 9px;
       font-weight: 400;
       letter-spacing: 0.05em;
       text-transform: uppercase;
@@ -321,20 +321,20 @@ import SiteLayout from "../../layouts/SiteLayout.astro";
     .guido-pillars {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 0.8rem;
-      margin-top: 1.5rem;
+      gap: 16px;
+      margin-top: 24px;
     }
 
     .guido-pillar {
       border: 1px solid var(--line);
       border-radius: 5px;
       background: var(--white);
-      padding: 1rem;
+      padding: 16px;
     }
 
     .guido-pillar h3 {
-      margin: 0.35rem 0 0.55rem;
-      font-size: 1rem;
+      margin: 8px 0;
+      font-size: 16px;
       font-weight: 500;
       letter-spacing: -0.02em;
     }
@@ -342,13 +342,13 @@ import SiteLayout from "../../layouts/SiteLayout.astro";
     .guido-pillar p {
       margin: 0;
       color: var(--muted);
-      font-size: 0.8rem;
+      font-size: 13px;
       line-height: 1.6;
     }
 
     .guido-figure {
       overflow: hidden;
-      margin: 1.75rem 0 0;
+      margin: 32px 0 0;
       border: 1px solid var(--line);
       border-radius: 6px;
       background: var(--white);
@@ -357,7 +357,7 @@ import SiteLayout from "../../layouts/SiteLayout.astro";
     .guido-figure-frame {
       border-bottom: 1px solid var(--line);
       background: var(--surface);
-      padding: clamp(0.65rem, 2vw, 1.1rem);
+      padding: clamp(8px, round(nearest, 2vw, 8px), 16px);
     }
 
     .guido-figure-frame img {
@@ -368,18 +368,18 @@ import SiteLayout from "../../layouts/SiteLayout.astro";
     }
 
     .guido-figure figcaption {
-      padding: 0.85rem 1rem;
+      padding: 16px;
     }
 
     .guido-figure figcaption p {
-      margin: 0.3rem 0 0;
+      margin: 8px 0 0;
       color: var(--muted);
-      font-size: 0.82rem;
+      font-size: 13px;
     }
 
     .guido-tree {
       overflow: hidden;
-      margin: 1.75rem 0 0;
+      margin: 32px 0 0;
       border: 1px solid var(--line);
       border-radius: 6px;
       background: var(--white);
@@ -389,23 +389,23 @@ import SiteLayout from "../../layouts/SiteLayout.astro";
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
-      gap: 0.75rem 1rem;
+      gap: 16px;
       flex-wrap: wrap;
       border-bottom: 1px solid var(--line);
       background: var(--paper);
-      padding: 0.9rem 1rem;
+      padding: 16px;
     }
 
     .guido-tree-header h3 {
-      margin: 0.3rem 0 0;
-      font-size: 0.95rem;
+      margin: 8px 0 0;
+      font-size: 15px;
       font-weight: 500;
     }
 
     .guido-tree-hint {
       color: var(--muted);
       font-family: var(--font-mono);
-      font-size: 0.57rem;
+      font-size: 9px;
       text-transform: uppercase;
     }
 
@@ -413,7 +413,7 @@ import SiteLayout from "../../layouts/SiteLayout.astro";
       max-width: 100%;
       overflow-x: auto;
       overscroll-behavior-x: contain;
-      padding: 1rem;
+      padding: 16px;
       scrollbar-color: var(--line) var(--surface);
     }
 
@@ -436,7 +436,7 @@ import SiteLayout from "../../layouts/SiteLayout.astro";
 
       .guido-section {
         grid-template-columns: 1fr;
-        gap: 1.5rem;
+        gap: 24px;
       }
     }
 
