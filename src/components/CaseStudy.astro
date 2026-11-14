@@ -4,7 +4,6 @@ import InformationArchitectureComparison from "./InformationArchitectureComparis
 import CardSortingMatrix from "./CardSortingMatrix.astro";
 import DocketBeforeAfter from "./DocketBeforeAfter.astro";
 import ServiceBlueprint from "./ServiceBlueprint.astro";
-import FintechNdaGallery from "./FintechNdaGallery.astro";
 
 interface Props {
   title: string;
@@ -19,7 +18,6 @@ interface Props {
   tools?: string;
   metadata?: { label: string; value: string }[];
   visual: "fintech" | "legal" | "health" | "archive";
-  gated?: boolean;
   comparison?: boolean;
   context?: string;
   approach?: string;
@@ -28,7 +26,6 @@ interface Props {
   cardSortingMatrix?: boolean;
   docketComparison?: boolean;
   serviceBlueprint?: boolean;
-  fintechGallery?: boolean;
   sections?: {
     heading: string;
     paragraphs: string[];
@@ -38,17 +35,19 @@ interface Props {
 
 const {
   title, accent, subtitle, role, timeline, team, impact, visual,
-  domain, year, tools, metadata, gated = false, comparison = false, iaComparison = false,
+  domain, year, tools, metadata, comparison = false, iaComparison = false,
   cardSortingMatrix = false, docketComparison = false, serviceBlueprint = false,
-  fintechGallery = false, context, approach, outcome, sections,
+  context, approach, outcome, sections,
 } = Astro.props;
 const pageTitle = `${title} — Case Study | Carolina Giacomin`;
 const caseSections = sections ?? [];
 const coverImage = visual === "fintech"
   ? "/images/Cover-Fintech.png"
-  : visual === "health"
-    ? "/images/guido-ui-overview_final.png"
-    : undefined;
+  : visual === "legal"
+    ? "/images/legal-cover.png"
+    : visual === "health"
+      ? "/images/guido-ui-overview_final.png"
+      : undefined;
 ---
 
 <SiteLayout title={pageTitle} description={subtitle}>
@@ -72,21 +71,7 @@ const coverImage = visual === "fintech"
       </div>
     </header>
 
-    {gated && (
-      <section class="password-panel" aria-labelledby="password-title">
-        <p class="eyebrow">Confidential project</p>
-        <h2 id="password-title">This case study is password protected.</h2>
-        <p>Enter the access password to view the project overview.</p>
-        <form class="password-form" id="case-password-form">
-          <label class="sr-only" for="case-password">Password</label>
-          <input id="case-password" name="password" type="password" autocomplete="current-password" required />
-          <button type="submit">Unlock case study</button>
-        </form>
-        <p class="form-message" id="password-message" role="status" aria-live="polite"></p>
-      </section>
-    )}
-
-    <div id="case-content" hidden={gated}>
+    <div>
       <section class="case-feature" aria-label="Product interface preview">
         {comparison ? (
           <>
@@ -116,10 +101,9 @@ const coverImage = visual === "fintech"
         ) : (
           <div class={`project-visual ${visual}-visual`} aria-hidden="true">
             <span class="visual-index">Product preview</span>
-            {gated && <span class="nda-badge">NDA protected</span>}
             {coverImage && <img class="project-cover" src={coverImage} alt="" loading="lazy" decoding="async" />}
             <div class={`product-window ${visual}-window`}>
-              <div class="window-top"><span>{visual === "fintech" ? "Fintech Products" : visual === "health" ? "Guido / Care" : "AI Art Archive"}</span><span>Workspace · Overview</span></div>
+              <div class="window-top"><span>{visual === "fintech" ? "Workflow Prototype" : visual === "legal" ? "Legal Tech" : visual === "health" ? "Guido / Care" : "AI Art Archive"}</span><span>Workspace · Overview</span></div>
               {visual === "fintech" && <div class="window-body"><div class="window-sidebar"><i class="ui-line accent"></i><i class="ui-line"></i><i class="ui-line short"></i><i class="ui-line"></i><i class="ui-line medium"></i></div><div class="window-content"><i class="ui-heading"></i><i class="ui-line medium"></i><div class="ui-table">{[1, 2, 3, 4].map(() => <div class="ui-table-row"><i class="ui-line"></i><i class="ui-line"></i><i class="ui-line"></i></div>)}</div></div></div>}
               {visual === "health" && <div class="window-body"><div class="window-content"><div><i class="ui-heading"></i><i class="ui-line medium"></i><i class="ui-line"></i><i class="ui-line short"></i></div><div class="health-orb">+</div></div></div>}
               {visual === "archive" && <div class="window-body"><div class="window-content">{[1, 2, 3, 4, 5, 6].map(() => <i class="archive-tile"></i>)}</div></div>}
@@ -127,7 +111,6 @@ const coverImage = visual === "fintech"
           </div>
         )}
       </section>
-      {fintechGallery && <FintechNdaGallery />}
 
       {sections ? sections.map((section, sectionIndex) => (
         <section class="case-content" id={`case-section-${sectionIndex + 1}`}>
@@ -167,25 +150,6 @@ const coverImage = visual === "fintech"
   </article>
 
   <script>
-    const passwordForm = document.querySelector<HTMLFormElement>("#case-password-form");
-    const passwordInput = document.querySelector<HTMLInputElement>("#case-password");
-    const passwordMessage = document.querySelector<HTMLElement>("#password-message");
-    const caseContent = document.querySelector<HTMLElement>("#case-content");
-    const acceptedPasswords = new Set(["FINTECH2026", "BANKING2026"]);
-
-    passwordForm?.addEventListener("submit", (event) => {
-      event.preventDefault();
-      if (!passwordInput || !passwordMessage || !caseContent) return;
-      if (acceptedPasswords.has(passwordInput.value.trim().toUpperCase())) {
-        caseContent.hidden = false;
-        passwordForm.closest(".password-panel")?.setAttribute("hidden", "");
-        caseContent.scrollIntoView({ behavior: "smooth", block: "start" });
-      } else {
-        passwordMessage.textContent = "That password didn't match. Please try again.";
-        passwordInput.select();
-      }
-    });
-
     const comparison = document.querySelector<HTMLElement>("#comparison");
     const comparisonRange = document.querySelector<HTMLInputElement>("#comparison-range");
 

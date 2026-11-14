@@ -306,17 +306,6 @@ body:has(.mobile-nav.is-open) .site-header {
   color: var(--muted);
 }
 
-.nda-badge {
-  position: absolute;
-  top: 1.1rem;
-  right: 1.1rem;
-  z-index: 2;
-  border: 1px solid var(--line);
-  background: var(--paper);
-  padding: 0.42rem 0.62rem;
-  color: var(--muted);
-}
-
 .product-window {
   width: min(82%, 34rem);
   overflow: hidden;
@@ -476,7 +465,8 @@ body:has(.mobile-nav.is-open) .site-header {
 
 .archive-visual .product-window,
 .health-visual .product-window,
-.fintech-visual .product-window {
+.fintech-visual .product-window,
+.legal-visual .product-window {
   display: none;
 }
 
@@ -868,58 +858,6 @@ body:has(.mobile-nav.is-open) .site-header {
 
 .case-decision-list span {
   color: var(--muted);
-}
-
-.password-panel {
-  max-width: 34rem;
-  margin: 3rem auto;
-  border: 1px solid var(--line);
-  background: var(--white);
-  padding: clamp(1.5rem, 4vw, 3rem);
-}
-
-.password-panel h2 {
-  margin: 0 0 0.5rem;
-  font-size: 1.5rem;
-  letter-spacing: -0.025em;
-}
-
-.password-panel p {
-  color: var(--muted);
-  font-size: 0.9rem;
-}
-
-.password-form {
-  display: flex;
-  gap: 0.65rem;
-  margin-top: 1.5rem;
-}
-
-.password-form input {
-  min-width: 0;
-  flex: 1;
-  border: 1px solid var(--line);
-  background: var(--paper);
-  padding: 0.8rem 0.9rem;
-}
-
-.password-form button {
-  border: 1px solid var(--ink);
-  background: var(--ink);
-  padding: 0.8rem 1rem;
-  color: var(--white);
-  cursor: pointer;
-  transition: background 180ms ease;
-}
-
-.password-form button:hover {
-  background: var(--accent);
-}
-
-.form-message {
-  min-height: 1.4em;
-  margin: 0.65rem 0 0 !important;
-  color: var(--accent) !important;
 }
 
 .comparison {
@@ -1450,7 +1388,7 @@ body:has(.mobile-nav.is-open) .site-header {
 .hero-visual {
   position: relative;
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 1749 / 1042;
   margin: 0;
   border: 1px solid rgba(253, 252, 249, 0.4);
   border-radius: 6px;
@@ -1690,15 +1628,6 @@ body:has(.mobile-nav.is-open) .site-header {
   color: #292723;
   font-size: 0.58rem;
   font-weight: 600;
-}
-
-.practice-item p + .practice-example {
-  border-top: 1px solid var(--line);
-  margin-top: 1.1rem;
-  padding-top: 0.9rem;
-  color: var(--ink);
-  font-size: 0.82rem;
-  font-weight: 500;
 }
 
 .contact-cta {
@@ -1948,13 +1877,6 @@ body:has(.mobile-nav.is-open) .site-header {
   text-transform: none;
 }
 
-.nda-badge {
-  font-family: var(--font-sans);
-  font-size: 0.7rem;
-  letter-spacing: 0;
-  text-transform: none;
-}
-
 .window-top {
   font-family: var(--font-sans);
   font-size: 0.65rem;
@@ -2154,21 +2076,31 @@ body:has(.mobile-nav.is-open) .site-header {
 }
 
 .project-card .project-cover {
+  width: min(82%, 34rem);
+  height: auto;
+  aspect-ratio: 16 / 9;
+  border: 1px solid #e6e2da;
+  border-radius: 4px;
   object-position: center;
-  transform: rotate(-1.5deg) scale(1.03);
+  transform: rotate(-2deg);
+  transition: transform 350ms ease;
 }
 
 .project-card:nth-child(even) .project-cover {
-  transform: rotate(1.5deg) scale(1.03);
+  transform: rotate(2deg);
 }
 
 .project-card:nth-child(even) .legal-window {
-  transform: rotate(1.5deg) scale(1.03);
+  transform: rotate(2deg);
 }
 
 .project-card:hover .project-cover,
 .project-card:focus-visible .project-cover,
 .project-card:hover .legal-window,
 .project-card:focus-visible .legal-window {
-  transform: rotate(0deg) translateY(-4px) scale(1.03);
+  transform: rotate(0deg) translateY(-4px);
+}
+
+.legal-visual .project-cover {
+  object-position: top center;
 }

@@ -1,45 +1,46 @@
 <section class="ia-comparison" aria-labelledby="ia-comparison-title">
   <div class="ia-comparison-header">
-    <span class="ia-eyebrow">Information architecture comparison</span>
-    <h3 id="ia-comparison-title">AI Raw Output vs. Designer-Led Hierarchy</h3>
-    <p>How restructuring process hierarchy vs. navigation hierarchy eliminated user disorientation across 30+ requirements.</p>
+    <span class="ia-eyebrow">Information architecture</span>
+    <h3 id="ia-comparison-title">From flat navigation to contextual workflows</h3>
+    <p>An illustrative example of grouping related tasks around the record users are working on.</p>
+    <p class="ia-disclaimer">Illustrative reconstruction; labels and interface details have been generalized.</p>
   </div>
 
   <div class="ia-grid">
     <article class="ia-card ia-card--flawed">
       <div class="ia-card-top">
-        <span class="ia-badge ia-badge--error">V1 · Raw AI generation (flawed)</span>
-        <span class="ia-tag">Flat requirement mapping</span>
+        <span class="ia-badge ia-badge--error">Initial structure · flat navigation</span>
+        <span class="ia-tag">Requirements listed as pages</span>
       </div>
 
       <div class="ia-mockup">
         <div class="ia-sidebar">
-          <div class="ia-sidebar-label">Global sidebar menu</div>
+          <div class="ia-sidebar-label">Global navigation</div>
           <ul class="ia-menu-list">
-            <li class="ia-menu-item">Dashboard</li>
-            <li class="ia-menu-item">Lista Posizioni</li>
+            <li class="ia-menu-item">Overview</li>
+            <li class="ia-menu-item">Records</li>
             <li class="ia-menu-item ia-menu-item--broken">
-              <span>Documenti</span>
-              <span class="ia-pill-warn">Which case?</span>
+              <span>Files</span>
+              <span class="ia-pill-warn">No record selected</span>
             </li>
             <li class="ia-menu-item ia-menu-item--broken">
-              <span>Messaggi / Log</span>
-              <span class="ia-pill-warn">No context</span>
+              <span>Activity</span>
+              <span class="ia-pill-warn">Context missing</span>
             </li>
             <li class="ia-menu-item ia-menu-item--broken">
-              <span>Scheda Posizione #104</span>
-              <span class="ia-pill-warn">Hardcoded</span>
+              <span>Selected record</span>
+              <span class="ia-pill-warn">Static example</span>
             </li>
             <li class="ia-menu-item ia-menu-item--broken">
-              <span>Delibera</span>
-              <span class="ia-pill-warn">Step, not view</span>
+              <span>Review step</span>
+              <span class="ia-pill-warn">Workflow step</span>
             </li>
           </ul>
         </div>
 
         <div class="ia-canvas ia-canvas--broken">
           <p class="ia-note-error">
-            <strong>Core issue:</strong> Workflow steps belonging to a single credit position were placed at the top navigation level, leaving operators without active case context.
+            <strong>Core issue:</strong> Record-level tasks appeared as global navigation, separating them from the item they belonged to.
           </p>
         </div>
       </div>
@@ -47,32 +48,32 @@
 
     <article class="ia-card ia-card--valid">
       <div class="ia-card-top">
-        <span class="ia-badge ia-badge--success">V2 · Restructured IA (validated)</span>
-        <span class="ia-tag">Contextual mental model</span>
+        <span class="ia-badge ia-badge--success">Reframed IA · contextual hierarchy</span>
+        <span class="ia-tag">Record-centered workflow</span>
       </div>
 
       <div class="ia-mockup">
         <div class="ia-sidebar">
-          <div class="ia-sidebar-label">4 global pillars</div>
+          <div class="ia-sidebar-label">Global navigation</div>
           <ul class="ia-menu-list">
-            <li class="ia-menu-item">Portfolio Dashboard</li>
-            <li class="ia-menu-item ia-menu-item--active">Credit Positions</li>
-            <li class="ia-menu-item">Approval Queue</li>
-            <li class="ia-menu-item">SLA &amp; KPI Monitor</li>
+            <li class="ia-menu-item">Workspace overview</li>
+            <li class="ia-menu-item ia-menu-item--active">Records</li>
+            <li class="ia-menu-item">Review queue</li>
+            <li class="ia-menu-item">Performance</li>
           </ul>
         </div>
 
         <div class="ia-canvas ia-canvas--valid">
           <div class="ia-nested-box">
             <div class="ia-nested-header">
-              <span>Contextual case view (on selection)</span>
-              <span class="ia-role-pill">Role: Bank ↔ Servicer</span>
+              <span>Selected record</span>
+              <span class="ia-role-pill">Role: Internal ↔ Partner</span>
             </div>
-            <div class="ia-accordion-bar">▾ Position Metadata Accordion (Summary, SLA, Status)</div>
+            <div class="ia-accordion-bar">▾ Record summary (owner, status, dates)</div>
             <div class="ia-tabs-row">
-              <span class="ia-tab ia-tab--active">Documents (4-State)</span>
-              <span class="ia-tab">Audit Log</span>
-              <span class="ia-tab">Deliberation</span>
+              <span class="ia-tab ia-tab--active">Files</span>
+              <span class="ia-tab">Activity</span>
+              <span class="ia-tab">Decision</span>
             </div>
           </div>
         </div>
@@ -116,6 +117,11 @@
     margin: 0;
     color: var(--muted);
     font-size: 0.9rem;
+  }
+
+  .ia-comparison-header .ia-disclaimer {
+    margin-top: 0.35rem;
+    font-size: 0.72rem;
   }
 
   .ia-grid {

@@ -6,25 +6,25 @@ interface Props {
   outcome?: string;
   href: string;
   visual: "fintech" | "legal" | "health" | "archive";
-  badge?: string;
 }
 
-const { title, context, year, outcome, href, visual, badge } = Astro.props;
+const { title, context, year, outcome, href, visual } = Astro.props;
 const coverImage = visual === "fintech"
   ? "/images/Cover-Fintech.png"
-  : visual === "health"
-    ? "/images/guido-cover.png"
-    : visual === "archive"
-      ? "/images/aiart_cover.jpg"
-      : undefined;
+  : visual === "legal"
+    ? "/images/legal-cover.png"
+    : visual === "health"
+      ? "/images/guido-cover.png"
+      : visual === "archive"
+        ? "/images/aiart_cover.jpg"
+        : undefined;
 ---
 
 <a class="project-card" href={href} aria-label={`${title} (view case study)`}>
   <div class={`project-visual ${visual}-visual`} aria-hidden="true">
-    {badge && <span class="nda-badge">{badge}</span>}
     {coverImage && <img class="project-cover" src={coverImage} alt="" loading="lazy" decoding="async" />}
     <div class={`product-window ${visual}-window`}>
-      <div class="window-top"><span>{visual === "fintech" ? "Fintech Products" : visual === "legal" ? "Docket Atlas" : visual === "health" ? "Guido / Care" : "AI Art Archive"}</span><span>Workspace · Overview</span></div>
+      <div class="window-top"><span>{visual === "fintech" ? "Fintech Products" : visual === "legal" ? "Legal Tech" : visual === "health" ? "Guido / Care" : "AI Art Archive"}</span><span>Workspace · Overview</span></div>
       {visual === "fintech" && (
         <div class="window-body">
           <div class="window-sidebar"><i class="ui-line accent"></i><i class="ui-line"></i><i class="ui-line short"></i><i class="ui-line"></i><i class="ui-line medium"></i></div>

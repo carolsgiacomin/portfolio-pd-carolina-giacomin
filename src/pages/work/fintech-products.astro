@@ -3,71 +3,67 @@ import CaseStudy from "../../components/CaseStudy.astro";
 ---
 
 <CaseStudy
-  title="Governing AI to untangle"
-  accent="complex fintech workflows."
-  subtitle="Transforming 30 raw spreadsheet requirements into a dual-role credit management prototype in 7 days."
-  role="Product Designer · Information Architecture, AI-Assisted Prototyping, MVP Scoping"
-  domain="Fintech products & B2B financial operations · Credit management"
-  timeline="1-week sprint · Executive client demo"
+  title="Structuring complex"
+  accent="B2B workflows."
+  subtitle="Turning ambiguous operational requirements into a role-aware, record-centered prototype."
+  role="Product Designer · Information Architecture, Prototyping, MVP Scoping"
+  domain="B2B operations · Workflow design"
+  timeline="Short discovery-to-prototype sprint"
   year="2026"
-  tools="FigJam · VS Code + Claude Code · Design System"
+  tools="Collaborative mapping · AI-assisted prototyping · Design system"
   visual="fintech"
-  gated={true}
   iaComparison={true}
-  serviceBlueprint={true}
-  fintechGallery={true}
   sections={[
     {
-      heading: "The context & constraint",
+      heading: "The context",
       paragraphs: [
-        "High-stakes financial ambiguity, with a one-week deadline. The challenge was to shape a B2B credit lifecycle product for two distinct operational roles: financial institution operators selecting portfolios, approving strategies, and governing risk; and external servicers managing recovery workflows and legal documentation.",
-        "The starting point was an unstructured Excel spreadsheet with around 30 high-level functional requirements across six process macro-phases. There were no wireframes or screen definitions, and just seven days to prepare an interactive prototype for a live client demo.",
+        "The challenge was to make a complex, multi-step B2B service understandable to people working across distinct roles. Each role needed to move through a shared workflow while seeing the information and actions relevant to its responsibilities.",
+        "The initial brief described process requirements but did not define how they should map to navigation or record context. I used it to shape a testable prototype and prioritize the essential journeys.",
       ],
     },
     {
-      heading: "When AI fails at UX architecture",
+      heading: "The information architecture challenge",
       paragraphs: [
-        "AI can generate plausible screens quickly; it does not automatically create a coherent mental model. Before design involvement, the Technology Director had fed the raw spreadsheet requirements into Claude Code. The generated HTML was functional, but its information architecture confused process hierarchy with navigation hierarchy.",
-        "Tasks belonging to a single credit case—documents, activity logs, and approval steps—were promoted to the global sidebar alongside a hardcoded link to one static position. Opening Documents without an active case left users without the context needed to understand what they were viewing.",
-        "The lesson: when each requirement row is treated as a standalone page, the prototype misses the contextual, end-to-end journey connecting them.",
+        "An early prototype represented workflow steps as separate top-level destinations. This made it harder to understand which actions belonged to a specific record and what context was needed to complete them.",
+        "The broader IA issue was that process steps and navigation destinations had been treated as interchangeable. Related tasks needed to stay connected to the record they concerned.",
       ],
     },
     {
-      heading: "The architectural intervention",
+      heading: "The design response",
       paragraphs: [
-        "Working alongside a senior design peer, I mapped the 30 requirements into a dual-role service blueprint spanning financial institution and Servicer views. To protect the one-week timeline, we scoped only the critical Phase 1 workflows for the prototype and documented Phase 2 dependencies and technical trade-offs in a structured Decision Log.",
-        "I restructured the prototype directly in VS Code through prompt-driven instructions—without manual code edits—shifting the experience from a flat AI-generated menu to a scalable, context-aware product architecture.",
+        "I regrouped related tasks around a selected record, while keeping workspace-level views and shared queues in the global navigation. I also made role-specific visibility an explicit part of the model.",
+        "Using AI-assisted prototyping, I explored the hierarchy quickly, scoped a representative set of journeys, and documented open questions and trade-offs for future exploration.",
       ],
       items: [
-        { title: "Four global views", description: "Portfolio Dashboard, Credit Positions List, Approval Queue for the financial institution view, and SLA / KPI Monitoring." },
-        { title: "Contextual credit case", description: "Position metadata sits in a collapsible accordion; Documents, Audit Log, and Deliberation are nested tabs within the active case." },
-        { title: "Explicit role switcher", description: "A high-contrast financial institution / Servicer selector makes role-specific permissions and visibility boundaries testable." },
+        { title: "Global navigation", description: "Workspace overview, records, shared review queue, and performance views." },
+        { title: "Contextual record", description: "Summary information stays with the selected record, alongside its files, activity, and decision history." },
+        { title: "Role-aware model", description: "Visibility and permissions are made explicit so that role-specific behavior can be reviewed and tested." },
       ],
     },
     {
-      heading: "Gap analysis & product decisions",
+      heading: "Validation & product decisions",
       paragraphs: [
-        "Once the navigation was coherent, I asked Claude Code to cross-check the prototype against the original requirements. It surfaced nine edge-case design questions, which I resolved systematically before the demo.",
+        "After establishing the hierarchy, I reviewed the prototype against the brief and identified assumptions that needed validation. I turned them into explicit product questions and design decisions.",
       ],
       items: [
-        { title: "Document validation", description: "Four explicit states—To Upload, Uploaded, Valid, and Invalid—with role-specific permissions: financial institution users upload or re-upload; Servicers request integration and validate." },
-        { title: "Position revocation", description: "Revocation is available in the Approval Queue and position actions, with a mandatory justification modal visible to both roles." },
-        { title: "Strategy catalog", description: "A dependent Approach → Strategy → Typology selection, mandatory notes for custom entries, and catalog editing restricted to Admin Settings." },
-        { title: "Cycle reopening", description: "Servicers can request a formal strategy review, reopening the case as a newly tracked cycle rather than overwriting historical decisions." },
+        { title: "State clarity", description: "Make the status and next action for each task easy to understand." },
+        { title: "Decision traceability", description: "Keep relevant history and rationale available as an item moves through a workflow." },
+        { title: "Role boundaries", description: "Clarify who can view, edit, request, or approve each action." },
+        { title: "Change management", description: "Represent significant changes in a way that preserves a clear record of what happened." },
       ],
     },
     {
-      heading: "Executive validation",
+      heading: "Stakeholder review",
       paragraphs: [
-        "The live prototype was presented to the client's Senior Director of Credit Innovation, Chief Legal Officer, COO, and Servicer representatives. No usability or navigation critiques emerged: stakeholders understood the dual-view model, revocation flows, and distinction between preliminary strategy and final deliberation.",
-        "Feedback focused on business depth—adding granular judicial-recovery subtasks and automated document ingestion—rather than the information architecture. That was a strong signal that the core structure was doing its job.",
+        "I shared the interactive prototype with cross-functional stakeholders and used the review to assess whether the structure made roles and task context understandable.",
+        "The discussion also surfaced operational needs for further exploration, helping distinguish what the prototype addressed from questions that remained open.",
       ],
     },
     {
       heading: "What I took forward",
       paragraphs: [
-        "Prompt-driven HTML prototyping was exceptionally effective for exploring complex flows and micro-interactions under a tight deadline. The next step still matters: migrating validated structures back into Figma supports component governance, faster UI-copy changes, and a dependable engineering handoff.",
-        "This sprint reinforced the designer's role in governing AI output: the speed of screen generation only becomes useful when requirements are organized around people, roles, and the context of their work.",
+        "AI-assisted prototyping can make it faster to explore complex workflows, but a coherent experience still depends on organizing requirements around people, roles, and the context of their work.",
+        "The experience reinforced the value of validating the underlying structure before investing in detailed interface design, then carrying those decisions into a maintainable design and engineering handoff.",
       ],
     },
   ]}
