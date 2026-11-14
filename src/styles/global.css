@@ -1330,7 +1330,7 @@ body:has(.mobile-nav.is-open) .site-header {
 .hero-visual {
   position: relative;
   width: 100%;
-  aspect-ratio: 1749 / 1042;
+  aspect-ratio: 1504 / 1028;
   margin: 0;
   border: 1px solid rgba(253, 252, 249, 0.4);
   border-radius: 6px;
@@ -1344,7 +1344,7 @@ body:has(.mobile-nav.is-open) .site-header {
   width: 100%;
   height: 100%;
   border-radius: inherit;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .hero-callout {
