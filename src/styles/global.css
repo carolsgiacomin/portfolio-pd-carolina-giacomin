@@ -607,6 +607,14 @@ body:has(.mobile-nav.is-open) .site-header {
   padding-top: clamp(72px, round(nearest, 9vw, 8px), 136px);
 }
 
+.footer-contact h2 {
+  margin: 0;
+  font-size: clamp(1.8rem, 3.7vw, 3.4rem);
+  font-weight: 500;
+  letter-spacing: -0.045em;
+  line-height: 1.15;
+}
+
 .footer-main {
   display: flex;
   align-items: center;
@@ -617,8 +625,14 @@ body:has(.mobile-nav.is-open) .site-header {
 
 .footer-contact {
   display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: clamp(16px, round(nearest, 2vw, 8px), 32px);
+}
+
+.footer-contact-details {
+  display: flex;
   align-items: center;
-  justify-content: flex-start;
   gap: clamp(16px, round(nearest, 2vw, 8px), 32px);
 }
 
@@ -636,18 +650,6 @@ body:has(.mobile-nav.is-open) .site-header {
 
 .footer-link:hover {
   color: var(--accent);
-}
-
-.footer-links {
-  display: flex;
-  flex: 1;
-  gap: clamp(8px, round(nearest, 1.2vw, 8px), 16px);
-  align-items: center;
-  justify-content: space-between;
-}
-
-.footer-links .footer-link {
-  flex: 1;
 }
 
 .footer-bottom {
@@ -1162,11 +1164,6 @@ body:has(.mobile-nav.is-open) .site-header {
     min-height: 13rem;
   }
 
-  .contact-cta {
-    align-items: flex-start;
-    flex-direction: column;
-  }
-
   .about-grid,
   .case-content {
     grid-template-columns: 1fr;
@@ -1208,21 +1205,12 @@ body:has(.mobile-nav.is-open) .site-header {
     gap: 0;
   }
 
-  .footer-contact,
-  .footer-links {
+  .footer-contact {
     flex-basis: 100%;
   }
 
-  .footer-contact {
-    justify-content: space-between;
-  }
-
-  .footer-links {
+  .footer-contact-details {
     flex-wrap: wrap;
-  }
-
-  .footer-links .footer-link {
-    flex: 1 1 9rem;
   }
 
   .resume-section {
@@ -1399,24 +1387,6 @@ body:has(.mobile-nav.is-open) .site-header {
 
 .legal-visual {
   background: #d7d4ce;
-}
-
-.contact-cta {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  border-top: 1px solid var(--line);
-  margin-top: clamp(48px, round(nearest, 6vw, 8px), 96px);
-  padding-block: clamp(24px, round(nearest, 3vw, 8px), 40px);
-}
-
-.contact-cta h2 {
-  margin: 0;
-  font-size: clamp(29px, round(nearest, 3.7vw, 1px), 54px);
-  font-weight: 500;
-  letter-spacing: -0.045em;
-  line-height: 1.15;
 }
 
 .footer-bottom {
